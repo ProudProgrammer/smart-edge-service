@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>pom</packaging>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.7.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>org.gaborbalazs.smartplatform</groupId>
+	<artifactId>edge-service</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<name>edge-service</name>
+	<description>Orchestrator service for Smart Platform</description>
+
+	<properties>
+		<project.version>1.0-SNAPSHOT</project.version>
+		<java.version>11</java.version>
+		<swagger.version>2.9.2</swagger.version>
+		<junit-jupiter.version>5.5.1</junit-jupiter.version>
+		<mockito-junit-jupiter.version>3.0.0</mockito-junit-jupiter.version>
+	</properties>
+
+	<modules>
+		<module>application</module>
+		<module>web</module>
+		<module>service</module>
+		<module>release</module>
+		<module>common</module>
+    </modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.gaborbalazs.smartplatform</groupId>
+				<artifactId>edge-service-application</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.gaborbalazs.smartplatform</groupId>
+				<artifactId>edge-service-web</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.gaborbalazs.smartplatform</groupId>
+				<artifactId>edge-service-release</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.gaborbalazs.smartplatform</groupId>
+				<artifactId>edge-service-common</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.gaborbalazs.smartplatform</groupId>
+				<artifactId>edge-service-service</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>${swagger.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger-ui</artifactId>
+				<version>${swagger.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>${junit-jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<version>${mockito-junit-jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>
