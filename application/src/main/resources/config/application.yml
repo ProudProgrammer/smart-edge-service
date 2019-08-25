@@ -1,3 +1,16 @@
 # Server
 server:
   port : 8080
+
+# Feign
+feign:
+  client:
+    config:
+      lotteryNumberGeneratorClient:
+        contract: org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.contract.LotteryTypeContract
+
+# Lottery Service
+lottery:
+  service:
+    base:
+      url: http://localhost:8081

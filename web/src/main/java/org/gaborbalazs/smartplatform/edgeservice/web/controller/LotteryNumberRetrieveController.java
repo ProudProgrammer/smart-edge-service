@@ -1,12 +1,13 @@
 package org.gaborbalazs.smartplatform.edgeservice.web.controller;
 
 import java.util.Set;
+import java.util.SortedSet;
 
-import org.gaborbalazs.smartplatform.edgeservice.service.enums.LotteryType;
 import org.gaborbalazs.smartplatform.edgeservice.service.retrieve.LotteryNumberRetrieveService;
 import org.gaborbalazs.smartplatform.edgeservice.web.api.LotteryNumberRetrieveApi;
 import org.gaborbalazs.smartplatform.edgeservice.web.api.LotteryNumberRetrieveSwaggerApi;
 import org.gaborbalazs.smartplatform.edgeservice.web.converter.LotteryTypeConverter;
+import org.gaborbalazs.smartplatform.lotteryservice.client.enums.LotteryType;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +22,7 @@ class LotteryNumberRetrieveController implements LotteryNumberRetrieveApi, Lotte
     }
 
     @Override
-    public Set<Integer> retrieveRandom(LotteryType lotteryType) {
+    public SortedSet<Integer> retrieveRandom(LotteryType lotteryType) {
         return lotteryNumberRetrieveService.retrieveRandom(lotteryType);
     }
 

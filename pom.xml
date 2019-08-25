@@ -21,6 +21,8 @@
 		<swagger.version>2.9.2</swagger.version>
 		<junit-jupiter.version>5.5.1</junit-jupiter.version>
 		<mockito-junit-jupiter.version>3.0.0</mockito-junit-jupiter.version>
+		<spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
+		<lottery-service-client-api.version>1.0-SNAPSHOT</lottery-service-client-api.version>
 	</properties>
 
 	<modules>
@@ -29,7 +31,8 @@
 		<module>service</module>
 		<module>release</module>
 		<module>common</module>
-    </modules>
+		<module>lottery-service-client</module>
+	</modules>
 
 	<dependencyManagement>
 		<dependencies>
@@ -58,6 +61,11 @@
 				<artifactId>edge-service-service</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.gaborbalazs.smartplatform</groupId>
+				<artifactId>lottery-service-client</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>io.springfox</groupId>
@@ -68,6 +76,19 @@
 				<groupId>io.springfox</groupId>
 				<artifactId>springfox-swagger-ui</artifactId>
 				<version>${swagger.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.gaborbalazs.smartplatform</groupId>
+				<artifactId>lottery-service-client-api</artifactId>
+				<version>${lottery-service-client-api.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -81,6 +102,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
