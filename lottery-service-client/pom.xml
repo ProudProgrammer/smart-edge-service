@@ -16,5 +16,9 @@
             <groupId>org.gaborbalazs.smartplatform</groupId>
             <artifactId>lottery-service-client-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.gaborbalazs.smartplatform</groupId>
+            <artifactId>edge-service-common</artifactId>
+        </dependency>
     </dependencies>
 </project>
