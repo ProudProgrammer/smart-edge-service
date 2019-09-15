@@ -1,0 +1,48 @@
+# Server
+server:
+  port : 8080
+
+# Feign
+feign:
+  client:
+    config:
+      lotteryNumberGeneratorClient:
+        contract: org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.contract.LotteryTypeContract
+
+# Lottery Service
+lottery:
+  service:
+    base:
+      url: http://localhost:8081
+
+# Swagger
+swagger:
+  title: SmartPlatform - Lottery Service
+  description: Lottery service for different lottery types.
+  version: 1.0
+  terms-of-service-url:
+  contact-name: Balázs Gábor
+  contact-url: https://github.com/ProudProgrammer
+  contact-email: mail.gabor.balazs@gmail.com
+  license: GNU General Public License
+  license-url: https://www.gnu.org/licenses/gpl-3.0.en.html
+
+# CustomLoggingFilter
+customloggingfilter:
+  enabled: true
+  logrequest: true
+  logresponse: true
+  request-querystring: true
+  request-clientinfo: true
+  request-headers: true
+  request-payload: true
+  # request-messageprefix: Request [
+  # request-messagesuffix: ]
+  response-headers: true
+  response-payload: true
+  # response-messageprefix: Response [
+  # response-messagesuffix: ]
+
+# LoggerAspect
+loggeraspect:
+  enabled: true

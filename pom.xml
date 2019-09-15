@@ -21,8 +21,10 @@
 		<swagger.version>2.9.2</swagger.version>
 		<junit-jupiter.version>5.5.1</junit-jupiter.version>
 		<mockito-junit-jupiter.version>3.0.0</mockito-junit-jupiter.version>
+		<mockito-core.version>3.0.0</mockito-core.version>
 		<spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
 		<lottery-service-client-api.version>1.0-SNAPSHOT</lottery-service-client-api.version>
+		<logging-filter.version>1.0-SNAPSHOT</logging-filter.version>
 	</properties>
 
 	<modules>
@@ -90,6 +92,11 @@
 				<artifactId>lottery-service-client-api</artifactId>
 				<version>${lottery-service-client-api.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.gaborbalazs.smartplatform</groupId>
+				<artifactId>logging-filter</artifactId>
+				<version>${logging-filter.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -108,10 +115,6 @@
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter</artifactId>
 			<version>${junit-jupiter.version}</version>
@@ -121,6 +124,12 @@
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-junit-jupiter</artifactId>
 			<version>${mockito-junit-jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito-core.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
