@@ -6,5 +6,5 @@ Orchestrator service for Smart Platform
 ```
 -Dspring.profiles.active=prod
 ```
-### System Architecture
+### System architecture of Smart Platform
 ![System Architecture](https://raw.githubusercontent.com/ProudProgrammer/smart-tools/master/plantuml/system-architecture.png)
