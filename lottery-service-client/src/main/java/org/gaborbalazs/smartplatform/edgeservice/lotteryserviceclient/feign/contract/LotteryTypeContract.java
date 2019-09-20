@@ -8,11 +8,12 @@ import org.springframework.cloud.openfeign.support.SpringMvcContract;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.support.DefaultConversionService;
+import org.springframework.lang.NonNull;
 
 import feign.Contract;
 import feign.MethodMetadata;
 
-public class LotteryTypeContract implements Contract {
+class LotteryTypeContract implements Contract {
 
     private Contract contract;
 
@@ -34,7 +35,7 @@ public class LotteryTypeContract implements Contract {
     private Converter<LotteryType, String> createLotteryTypeToStringConverter() {
         return new Converter<LotteryType, String>() {
             @Override
-            public String convert(LotteryType lotteryType) {
+            public String convert(@NonNull LotteryType lotteryType) {
                 return lotteryType.getPathVariableName();
             }
         };

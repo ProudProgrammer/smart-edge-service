@@ -4,5 +4,5 @@ import org.gaborbalazs.smartplatform.lotteryservice.client.api.LotteryNumberGene
 import org.springframework.cloud.openfeign.FeignClient;
 
 @FeignClient(value = "lotteryNumberGeneratorClient", url = "${lottery.service.base.url}")
-public interface LotteryNumberGeneratorClient extends LotteryNumberGeneratorApi {
+public interface FeignLotteryNumberGeneratorClient extends LotteryNumberGeneratorApi {
 }

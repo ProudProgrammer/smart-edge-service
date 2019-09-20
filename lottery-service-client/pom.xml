@@ -14,11 +14,21 @@
     <dependencies>
         <dependency>
             <groupId>org.gaborbalazs.smartplatform</groupId>
-            <artifactId>lottery-service-client-api</artifactId>
+            <artifactId>edge-service-common</artifactId>
         </dependency>
         <dependency>
             <groupId>org.gaborbalazs.smartplatform</groupId>
-            <artifactId>edge-service-common</artifactId>
+            <artifactId>edge-service-service</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.gaborbalazs.smartplatform</groupId>
+            <artifactId>lottery-service-client-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
     </dependencies>
 </project>

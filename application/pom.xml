@@ -25,6 +25,10 @@
             <groupId>org.gaborbalazs.smartplatform</groupId>
             <artifactId>edge-service-common</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.gaborbalazs.smartplatform</groupId>
+            <artifactId>lottery-service-client</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>io.springfox</groupId>
