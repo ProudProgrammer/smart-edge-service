@@ -5,3 +5,10 @@ loggeraspect:
 # CustomLoggingFilter
 customloggingfilter:
   enabled: false
+
+# Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
