@@ -1,4 +1,4 @@
-package org.gaborbalazs.smartplatform.edgeservice.service.enums;
+package org.gaborbalazs.smartplatform.edgeservice.common.enums;
 
 import java.util.List;
 import java.util.Optional;

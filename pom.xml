@@ -26,6 +26,8 @@
 		<lottery-service-client-api.version>1.0-SNAPSHOT</lottery-service-client-api.version>
 		<logging-filter.version>1.0-SNAPSHOT</logging-filter.version>
 		<openfeign.version>2.1.0.RELEASE</openfeign.version>
+		<spring-boot.version>2.1.7.RELEASE</spring-boot.version>
+		<wiremock.version>2.24.1</wiremock.version>
 	</properties>
 
 	<modules>
@@ -35,10 +37,13 @@
 		<module>release</module>
 		<module>common</module>
 		<module>lottery-service-client</module>
-	</modules>
+        <module>integration-test</module>
+    </modules>
 
+	<!-- Available dependencies -->
 	<dependencyManagement>
 		<dependencies>
+			<!-- Module dependencies -->
 			<dependency>
 				<groupId>org.gaborbalazs.smartplatform</groupId>
 				<artifactId>edge-service-application</artifactId>
@@ -66,10 +71,23 @@
 			</dependency>
 			<dependency>
 				<groupId>org.gaborbalazs.smartplatform</groupId>
-				<artifactId>lottery-service-client</artifactId>
+				<artifactId>edge-service-lottery-service-client</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 
+			<!-- Smart Platform dependencies -->
+			<dependency>
+				<groupId>org.gaborbalazs.smartplatform</groupId>
+				<artifactId>lottery-service-client-api</artifactId>
+				<version>${lottery-service-client-api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.gaborbalazs.smartplatform</groupId>
+				<artifactId>logging-filter</artifactId>
+				<version>${logging-filter.version}</version>
+			</dependency>
+
+			<!-- 3rd party dependencies -->
 			<dependency>
 				<groupId>io.springfox</groupId>
 				<artifactId>springfox-swagger2</artifactId>
@@ -92,28 +110,26 @@
 				<artifactId>spring-cloud-starter-openfeign</artifactId>
 				<version>${openfeign.version}</version>
 			</dependency>
-
 			<dependency>
-				<groupId>org.gaborbalazs.smartplatform</groupId>
-				<artifactId>lottery-service-client-api</artifactId>
-				<version>${lottery-service-client-api.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.gaborbalazs.smartplatform</groupId>
-				<artifactId>logging-filter</artifactId>
-				<version>${logging-filter.version}</version>
+				<groupId>com.github.tomakehurst</groupId>
+				<artifactId>wiremock</artifactId>
+				<version>${wiremock.version}</version>
+				<scope>test</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
+	<!-- Common dependencies, inherited by all child modules -->
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<version>${spring-boot.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<version>${spring-boot.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

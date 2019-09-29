@@ -1,0 +1,5 @@
+# Lottery Service
+lottery:
+  service:
+    base:
+      url: http://lotteryservice:8080

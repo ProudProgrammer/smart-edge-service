@@ -17,7 +17,7 @@ lottery:
 
 # Swagger
 swagger:
-  title: SmartPlatform - Edge Service
+  title: Smart Platform - Edge Service
   description: Orchestrator service for Smart Platform.
   version: 1.0
   terms-of-service-url:

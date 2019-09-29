@@ -2,7 +2,7 @@ package org.gaborbalazs.smartplatform.edgeservice.web.api;
 
 import java.util.Set;
 
-import org.gaborbalazs.smartplatform.edgeservice.service.enums.LotteryType;
+import org.gaborbalazs.smartplatform.edgeservice.common.enums.LotteryType;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
