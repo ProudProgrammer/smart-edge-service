@@ -26,7 +26,6 @@
 		<lottery-service-client-api.version>1.0-SNAPSHOT</lottery-service-client-api.version>
 		<logging-filter.version>1.0-SNAPSHOT</logging-filter.version>
 		<openfeign.version>2.1.0.RELEASE</openfeign.version>
-		<spring-boot.version>2.1.7.RELEASE</spring-boot.version>
 		<wiremock.version>2.24.1</wiremock.version>
 	</properties>
 
@@ -124,18 +123,15 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			<version>${spring-boot.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<version>${spring-boot.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
-			<version>${spring-boot.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>

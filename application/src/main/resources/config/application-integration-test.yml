@@ -2,4 +2,4 @@
 lottery:
   service:
     base:
-      url: http://lotteryservice:8080
+      url: http://localhost:8345
