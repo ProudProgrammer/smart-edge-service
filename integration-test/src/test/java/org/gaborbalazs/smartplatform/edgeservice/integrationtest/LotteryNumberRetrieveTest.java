@@ -1,7 +1,12 @@
 package org.gaborbalazs.smartplatform.edgeservice.integrationtest;
 
+import com.github.tomakehurst.wiremock.WireMockServer;
+import com.github.tomakehurst.wiremock.client.WireMock;
+import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import org.gaborbalazs.smartplatform.edgeservice.application.EdgeServiceApplication;
 import org.gaborbalazs.smartplatform.edgeservice.common.enums.LotteryType;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,12 +19,9 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-
-import com.github.tomakehurst.wiremock.WireMockServer;
-import com.github.tomakehurst.wiremock.client.WireMock;
-import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = EdgeServiceApplication.class)
@@ -30,9 +32,11 @@ class LotteryNumberRetrieveTest {
     @Autowired
     private MockMvc mockMvc;
 
+    private WireMockServer wireMockServer;
+
     @BeforeEach
     void setUp() {
-        WireMockServer wireMockServer = new WireMockServer(WireMockConfiguration.options().port(8345));
+        wireMockServer = new WireMockServer(WireMockConfiguration.options().port(8345));
         wireMockServer.start();
         WireMock.configureFor(wireMockServer.port());
         WireMock.stubFor(WireMock.get(WireMock.urlMatching("/lottery/" + LotteryType.FIVE_OUT_OF_NINETY.getPathVariableName() + "/numbers/random"))
@@ -44,13 +48,21 @@ class LotteryNumberRetrieveTest {
         );
     }
 
+    @AfterEach
+    void tearDown() {
+        wireMockServer.stop();
+    }
+
     @Test
     void testRetrieveRandom() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders
-                        .get("/retrieve/lottery/" + LotteryType.FIVE_OUT_OF_NINETY.getPathVariableName() + "/numbers/random")
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers
-                                .status()
-                                .isOk());
+        // GIVEN
+
+        // WHEN
+        String url = "/retrieve/lottery/" + LotteryType.FIVE_OUT_OF_NINETY.getPathVariableName() + "/numbers/random";
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.get(url);
+        MvcResult mvcResult = mockMvc.perform(requestBuilder).andReturn();
+
+        // THEN
+        Assertions.assertEquals(HttpStatus.OK.value(), mvcResult.getResponse().getStatus());
     }
 }
