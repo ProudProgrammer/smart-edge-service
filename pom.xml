@@ -27,6 +27,7 @@
 		<logging-filter.version>1.0-SNAPSHOT</logging-filter.version>
 		<openfeign.version>2.1.0.RELEASE</openfeign.version>
 		<wiremock.version>2.24.1</wiremock.version>
+		<jayway.jsonpath.version>2.4.0</jayway.jsonpath.version>
 	</properties>
 
 	<modules>
@@ -113,6 +114,12 @@
 				<groupId>com.github.tomakehurst</groupId>
 				<artifactId>wiremock</artifactId>
 				<version>${wiremock.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.jayway.jsonpath</groupId>
+				<artifactId>json-path</artifactId>
+				<version>${jayway.jsonpath.version}</version>
 				<scope>test</scope>
 			</dependency>
 		</dependencies>
