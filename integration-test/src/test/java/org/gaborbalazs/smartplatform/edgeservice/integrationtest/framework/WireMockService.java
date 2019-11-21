@@ -1,8 +1,5 @@
 package org.gaborbalazs.smartplatform.edgeservice.integrationtest.framework;
 
-import com.github.tomakehurst.wiremock.WireMockServer;
-import com.github.tomakehurst.wiremock.client.WireMock;
-import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import org.gaborbalazs.smartplatform.edgeservice.common.enums.LotteryType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -10,12 +7,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 
+import com.github.tomakehurst.wiremock.WireMockServer;
+import com.github.tomakehurst.wiremock.client.WireMock;
+import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
+
 @Component
 public class WireMockService {
 
     private static final String WIREMOCK_DEFAULT_STUB_PATH = "response/mock/";
-    private static final String LOTTERY_SERVICE_GENERATE_RANDOM_FIVE_OUT_OF_NINETY_ENDPOINT =
-            "/lottery/" + LotteryType.FIVE_OUT_OF_NINETY.getPathVariableName() + "/numbers/random";
 
     @Autowired
     private JsonResourceProvider jsonResourceProvider;
@@ -34,8 +33,8 @@ public class WireMockService {
         }
     }
 
-    public void setUpLotteryServiceStub(String responseFile, HttpStatus httpStatus) {
-        setUpStub(LOTTERY_SERVICE_GENERATE_RANDOM_FIVE_OUT_OF_NINETY_ENDPOINT, "lotteryService/" + responseFile + ".json", httpStatus);
+    public void setUpLotteryServiceGenerateRandomStub(LotteryType lotteryType, String responseFile, HttpStatus httpStatus) {
+        setUpStub("/lottery/" + lotteryType.getPathVariableName() + "/numbers/random", "lotteryService/" + responseFile + ".json", httpStatus);
     }
 
     private void setUpStub(String urlPattern, String responseFilePath, HttpStatus httpStatus) {

@@ -40,6 +40,15 @@
         <module>integration-test</module>
     </modules>
 
+	<profiles>
+		<profile>
+			<id>fast</id>
+			<properties>
+				<maven.test.skip>true</maven.test.skip>
+			</properties>
+		</profile>
+	</profiles>
+
 	<!-- Available dependencies -->
 	<dependencyManagement>
 		<dependencies>
