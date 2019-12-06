@@ -1,0 +1,8 @@
+# For build and run manually
+docker build -t edge-service . (in the same folder as Dockerfile)
+docker run -p 8080:8080 edge-service
+
+# Some useful docker command
+docker image ls / docker images
+docker container ls / docker ps
+docker container stop [CONTAINER ID]
