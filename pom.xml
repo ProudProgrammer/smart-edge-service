@@ -40,13 +40,13 @@
 
 	<modules>
 		<module>application</module>
-		<module>web</module>
-		<module>service</module>
-		<module>release</module>
 		<module>common</module>
 		<module>lottery-service-client</module>
-        <module>integration-test</module>
-    </modules>
+		<module>service</module>
+		<module>web</module>
+		<module>integration-test</module>
+		<module>release</module>
+	</modules>
 
 	<profiles>
 		<profile>
