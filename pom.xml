@@ -32,7 +32,7 @@
 		<openfeign.version>2.1.0.RELEASE</openfeign.version>
 		<wiremock.version>2.24.1</wiremock.version>
 		<jayway.jsonpath.version>2.4.0</jayway.jsonpath.version>
-		<docker.plugin.version>1.4.3</docker.plugin.version>
+		<docker.plugin.version>1.4.13</docker.plugin.version>
 
 		<!-- Build properties -->
 		<main.class>org.gaborbalazs.smartplatform.edgeservice.application.EdgeServiceApplication</main.class>

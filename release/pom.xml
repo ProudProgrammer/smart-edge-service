@@ -53,11 +53,13 @@
                                 <goals>
                                     <goal>build</goal>
                                 </goals>
-                                <configuration>
-                                    <contextDirectory>${project.parent.basedir}</contextDirectory>
-                                </configuration>
                             </execution>
                         </executions>
+                        <configuration>
+                            <contextDirectory>${project.parent.basedir}</contextDirectory>
+                            <repository>${project.parent.artifactId}</repository>
+                            <tag>${project.parent.version}</tag>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
