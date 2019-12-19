@@ -33,9 +33,6 @@
 		<wiremock.version>2.24.1</wiremock.version>
 		<jayway.jsonpath.version>2.4.0</jayway.jsonpath.version>
 		<docker.plugin.version>1.4.13</docker.plugin.version>
-
-		<!-- Build properties -->
-		<main.class>org.gaborbalazs.smartplatform.edgeservice.application.EdgeServiceApplication</main.class>
 	</properties>
 
 	<modules>
@@ -48,19 +45,13 @@
 		<module>release</module>
 	</modules>
 
-	<!-- Available profiles -->
+	<!-- Profiles -->
 	<profiles>
-		<profile>
-			<id>default</id>
-		</profile>
 		<profile>
 			<id>fast</id>
 			<properties>
 				<maven.test.skip>true</maven.test.skip>
 			</properties>
-		</profile>
-		<profile>
-			<id>docker</id>
 		</profile>
 	</profiles>
 
