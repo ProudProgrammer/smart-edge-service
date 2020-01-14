@@ -31,8 +31,8 @@
 		<spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
 		<openfeign.version>2.1.0.RELEASE</openfeign.version>
 		<wiremock.version>2.24.1</wiremock.version>
-		<jayway.jsonpath.version>2.4.0</jayway.jsonpath.version>
-		<docker.plugin.version>1.4.13</docker.plugin.version>
+		<jayway-jsonpath.version>2.4.0</jayway-jsonpath.version>
+		<spotify-dockerfile.version>1.4.10</spotify-dockerfile.version>
 	</properties>
 
 	<modules>
@@ -134,7 +134,7 @@
 			<dependency>
 				<groupId>com.jayway.jsonpath</groupId>
 				<artifactId>json-path</artifactId>
-				<version>${jayway.jsonpath.version}</version>
+				<version>${jayway-jsonpath.version}</version>
 				<scope>test</scope>
 			</dependency>
 		</dependencies>
@@ -182,7 +182,7 @@
 				<plugin>
 					<groupId>com.spotify</groupId>
 					<artifactId>dockerfile-maven-plugin</artifactId>
-					<version>${docker.plugin.version}</version>
+					<version>${spotify-dockerfile.version}</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
