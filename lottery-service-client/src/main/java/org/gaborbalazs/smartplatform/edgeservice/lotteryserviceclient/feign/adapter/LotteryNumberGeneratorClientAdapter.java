@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class LotteryNumberGeneratorClientAdapter implements LotteryNumberGeneratorClient {
 
-    private FeignLotteryNumberGeneratorClient feignLotteryNumberGeneratorClient;
-    private LotteryTypeConverter lotteryTypeConverter;
+    private final FeignLotteryNumberGeneratorClient feignLotteryNumberGeneratorClient;
+    private final LotteryTypeConverter lotteryTypeConverter;
 
     LotteryNumberGeneratorClientAdapter(FeignLotteryNumberGeneratorClient feignLotteryNumberGeneratorClient, LotteryTypeConverter lotteryTypeConverter) {
         this.feignLotteryNumberGeneratorClient = feignLotteryNumberGeneratorClient;

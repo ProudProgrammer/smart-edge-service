@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 class LotteryNumberRetrieveController implements LotteryNumberRetrieveApi, LotteryNumberRetrieveSwaggerApi {
 
-    private LotteryNumberRetrieveService lotteryNumberRetrieveService;
+    private final LotteryNumberRetrieveService lotteryNumberRetrieveService;
 
     LotteryNumberRetrieveController(LotteryNumberRetrieveService lotteryNumberRetrieveService) {
         this.lotteryNumberRetrieveService = lotteryNumberRetrieveService;

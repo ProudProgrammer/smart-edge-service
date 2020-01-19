@@ -15,7 +15,7 @@ import feign.MethodMetadata;
 
 class LotteryTypeContract implements Contract {
 
-    private Contract contract;
+    private final Contract contract;
 
     LotteryTypeContract() {
         contract = new SpringMvcContract(Collections.emptyList(), createConversionService());

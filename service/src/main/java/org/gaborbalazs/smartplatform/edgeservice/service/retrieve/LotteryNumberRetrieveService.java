@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class LotteryNumberRetrieveService {
 
-    private LotteryNumberGeneratorClient lotteryNumberGeneratorClient;
+    private final LotteryNumberGeneratorClient lotteryNumberGeneratorClient;
 
     LotteryNumberRetrieveService(LotteryNumberGeneratorClient lotteryNumberGeneratorClientAdapter) {
         this.lotteryNumberGeneratorClient = lotteryNumberGeneratorClientAdapter;
