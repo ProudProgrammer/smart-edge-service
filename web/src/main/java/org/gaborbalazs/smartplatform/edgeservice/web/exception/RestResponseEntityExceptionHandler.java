@@ -1,6 +1,6 @@
 package org.gaborbalazs.smartplatform.edgeservice.web.exception;
 
-import org.gaborbalazs.smartplatform.edgeservice.common.context.RequestContext;
+import org.gaborbalazs.smartplatform.edgeservice.service.context.RequestContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;

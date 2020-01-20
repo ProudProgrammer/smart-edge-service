@@ -1,6 +1,6 @@
 package org.gaborbalazs.smartplatform.edgeservice.web.filter;
 
-import org.gaborbalazs.smartplatform.edgeservice.common.enums.HeaderParameterName;
+import org.gaborbalazs.smartplatform.edgeservice.service.enums.HeaderParameterName;
 import org.slf4j.MDC;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;

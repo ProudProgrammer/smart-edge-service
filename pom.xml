@@ -36,11 +36,10 @@
 	</properties>
 
 	<modules>
-		<module>application</module>
-		<module>common</module>
-		<module>lottery-service-client</module>
 		<module>service</module>
+		<module>lottery-service-client</module>
 		<module>web</module>
+		<module>application</module>
 		<module>integration-test</module>
 		<module>release</module>
 	</modules>
@@ -61,7 +60,12 @@
 			<!-- Module dependencies -->
 			<dependency>
 				<groupId>org.gaborbalazs.smartplatform</groupId>
-				<artifactId>edge-service-application</artifactId>
+				<artifactId>edge-service-service</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.gaborbalazs.smartplatform</groupId>
+				<artifactId>edge-service-lottery-service-client</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
@@ -71,22 +75,12 @@
 			</dependency>
 			<dependency>
 				<groupId>org.gaborbalazs.smartplatform</groupId>
+				<artifactId>edge-service-application</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.gaborbalazs.smartplatform</groupId>
 				<artifactId>edge-service-release</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.gaborbalazs.smartplatform</groupId>
-				<artifactId>edge-service-common</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.gaborbalazs.smartplatform</groupId>
-				<artifactId>edge-service-service</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.gaborbalazs.smartplatform</groupId>
-				<artifactId>edge-service-lottery-service-client</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 

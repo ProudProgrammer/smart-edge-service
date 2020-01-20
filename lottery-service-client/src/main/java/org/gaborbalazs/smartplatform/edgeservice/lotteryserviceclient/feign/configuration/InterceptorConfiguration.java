@@ -1,8 +1,8 @@
 package org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.configuration;
 
 import feign.RequestInterceptor;
-import org.gaborbalazs.smartplatform.edgeservice.common.context.RequestContext;
-import org.gaborbalazs.smartplatform.edgeservice.common.enums.HeaderParameterName;
+import org.gaborbalazs.smartplatform.edgeservice.service.context.RequestContext;
+import org.gaborbalazs.smartplatform.edgeservice.service.enums.HeaderParameterName;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.StringUtils;

@@ -19,14 +19,6 @@
         </dependency>
         <dependency>
             <groupId>org.gaborbalazs.smartplatform</groupId>
-            <artifactId>edge-service-service</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.gaborbalazs.smartplatform</groupId>
-            <artifactId>edge-service-common</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.gaborbalazs.smartplatform</groupId>
             <artifactId>edge-service-lottery-service-client</artifactId>
         </dependency>
 

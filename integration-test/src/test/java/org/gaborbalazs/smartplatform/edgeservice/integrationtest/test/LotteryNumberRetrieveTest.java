@@ -2,7 +2,7 @@ package org.gaborbalazs.smartplatform.edgeservice.integrationtest.test;
 
 import java.util.List;
 
-import org.gaborbalazs.smartplatform.edgeservice.common.enums.LotteryType;
+import org.gaborbalazs.smartplatform.edgeservice.service.enums.LotteryType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;

@@ -2,7 +2,7 @@ package org.gaborbalazs.smartplatform.edgeservice.web.controller;
 
 import java.util.SortedSet;
 
-import org.gaborbalazs.smartplatform.edgeservice.common.enums.LotteryType;
+import org.gaborbalazs.smartplatform.edgeservice.service.enums.LotteryType;
 import org.gaborbalazs.smartplatform.edgeservice.service.retrieve.LotteryNumberRetrieveService;
 import org.gaborbalazs.smartplatform.edgeservice.web.api.LotteryNumberRetrieveApi;
 import org.gaborbalazs.smartplatform.edgeservice.web.api.LotteryNumberRetrieveSwaggerApi;

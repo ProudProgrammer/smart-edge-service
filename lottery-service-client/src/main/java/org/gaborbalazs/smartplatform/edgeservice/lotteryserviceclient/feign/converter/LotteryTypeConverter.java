@@ -1,6 +1,6 @@
 package org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.converter;
 
-import org.gaborbalazs.smartplatform.edgeservice.common.enums.LotteryType;
+import org.gaborbalazs.smartplatform.edgeservice.service.enums.LotteryType;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;

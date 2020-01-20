@@ -10,12 +10,4 @@
     </parent>
 
     <artifactId>edge-service-service</artifactId>
-
-    <dependencies>
-        <!-- Module dependencies -->
-        <dependency>
-            <groupId>org.gaborbalazs.smartplatform</groupId>
-            <artifactId>edge-service-common</artifactId>
-        </dependency>
-    </dependencies>
 </project>

@@ -4,7 +4,7 @@ import java.util.SortedSet;
 
 import org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.client.FeignLotteryNumberGeneratorClient;
 import org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.converter.LotteryTypeConverter;
-import org.gaborbalazs.smartplatform.edgeservice.common.enums.LotteryType;
+import org.gaborbalazs.smartplatform.edgeservice.service.enums.LotteryType;
 import org.gaborbalazs.smartplatform.edgeservice.service.iface.LotteryNumberGeneratorClient;
 import org.springframework.stereotype.Component;
 

@@ -1,6 +1,6 @@
 package org.gaborbalazs.smartplatform.edgeservice.integrationtest.framework;
 
-import org.gaborbalazs.smartplatform.edgeservice.common.enums.LotteryType;
+import org.gaborbalazs.smartplatform.edgeservice.service.enums.LotteryType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

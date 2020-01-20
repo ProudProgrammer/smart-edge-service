@@ -2,8 +2,8 @@ package org.gaborbalazs.smartplatform.edgeservice.web.configuration;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.gaborbalazs.smartplatform.edgeservice.common.context.RequestContext;
-import org.gaborbalazs.smartplatform.edgeservice.common.enums.HeaderParameterName;
+import org.gaborbalazs.smartplatform.edgeservice.service.context.RequestContext;
+import org.gaborbalazs.smartplatform.edgeservice.service.enums.HeaderParameterName;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
