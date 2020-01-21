@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class LotteryTypeConverter implements Converter<LotteryType, org.gaborbalazs.smartplatform.lotteryservice.client.enums.LotteryType> {
 
     @Override
-    public org.gaborbalazs.smartplatform.lotteryservice.client.enums.LotteryType convert(@NonNull LotteryType source) {
-        return org.gaborbalazs.smartplatform.lotteryservice.client.enums.LotteryType.valueOf(source.name());
+    public org.gaborbalazs.smartplatform.lotteryservice.client.enums.LotteryType convert(@NonNull LotteryType LotteryTypeSource) {
+        return org.gaborbalazs.smartplatform.lotteryservice.client.enums.LotteryType.valueOf(LotteryTypeSource.name());
     }
 }

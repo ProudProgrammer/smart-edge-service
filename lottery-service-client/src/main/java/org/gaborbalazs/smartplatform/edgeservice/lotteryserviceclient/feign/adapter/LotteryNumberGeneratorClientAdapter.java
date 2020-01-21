@@ -3,7 +3,9 @@ package org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.ada
 import java.util.SortedSet;
 
 import org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.client.FeignLotteryNumberGeneratorClient;
+import org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.converter.GeneratorTypeConverter;
 import org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.converter.LotteryTypeConverter;
+import org.gaborbalazs.smartplatform.edgeservice.service.enums.GeneratorType;
 import org.gaborbalazs.smartplatform.edgeservice.service.enums.LotteryType;
 import org.gaborbalazs.smartplatform.edgeservice.service.iface.LotteryNumberGeneratorClient;
 import org.springframework.stereotype.Component;
@@ -13,14 +15,17 @@ public class LotteryNumberGeneratorClientAdapter implements LotteryNumberGenerat
 
     private final FeignLotteryNumberGeneratorClient feignLotteryNumberGeneratorClient;
     private final LotteryTypeConverter lotteryTypeConverter;
+    private final GeneratorTypeConverter generatorTypeConverter;
 
-    LotteryNumberGeneratorClientAdapter(FeignLotteryNumberGeneratorClient feignLotteryNumberGeneratorClient, LotteryTypeConverter lotteryTypeConverter) {
+    LotteryNumberGeneratorClientAdapter(FeignLotteryNumberGeneratorClient feignLotteryNumberGeneratorClient, LotteryTypeConverter lotteryTypeConverter,
+            GeneratorTypeConverter generatorTypeConverter) {
         this.feignLotteryNumberGeneratorClient = feignLotteryNumberGeneratorClient;
         this.lotteryTypeConverter = lotteryTypeConverter;
+        this.generatorTypeConverter = generatorTypeConverter;
     }
 
     @Override
-    public SortedSet<Integer> generate(LotteryType lotteryType) {
-        return feignLotteryNumberGeneratorClient.generateRandom(lotteryTypeConverter.convert(lotteryType));
+    public SortedSet<Integer> generate(LotteryType lotteryType, GeneratorType generatorType) {
+        return feignLotteryNumberGeneratorClient.generate(lotteryTypeConverter.convert(lotteryType), generatorTypeConverter.convert(generatorType));
     }
 }

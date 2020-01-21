@@ -2,10 +2,12 @@ package org.gaborbalazs.smartplatform.edgeservice.web.controller;
 
 import java.util.SortedSet;
 
+import org.gaborbalazs.smartplatform.edgeservice.service.enums.GeneratorType;
 import org.gaborbalazs.smartplatform.edgeservice.service.enums.LotteryType;
 import org.gaborbalazs.smartplatform.edgeservice.service.retrieve.LotteryNumberRetrieveService;
 import org.gaborbalazs.smartplatform.edgeservice.web.api.LotteryNumberRetrieveApi;
 import org.gaborbalazs.smartplatform.edgeservice.web.api.LotteryNumberRetrieveSwaggerApi;
+import org.gaborbalazs.smartplatform.edgeservice.web.editor.GeneratorTypeEditor;
 import org.gaborbalazs.smartplatform.edgeservice.web.editor.LotteryTypeEditor;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -21,12 +23,13 @@ class LotteryNumberRetrieveController implements LotteryNumberRetrieveApi, Lotte
     }
 
     @Override
-    public SortedSet<Integer> retrieve(LotteryType lotteryType) {
-        return lotteryNumberRetrieveService.retrieve(lotteryType);
+    public SortedSet<Integer> retrieve(LotteryType lotteryType, GeneratorType generatorType) {
+        return lotteryNumberRetrieveService.retrieve(lotteryType, generatorType);
     }
 
     @InitBinder
     void initBinder(WebDataBinder webDataBinder) {
         webDataBinder.registerCustomEditor(LotteryType.class, new LotteryTypeEditor());
+        webDataBinder.registerCustomEditor(GeneratorType.class, new GeneratorTypeEditor());
     }
 }

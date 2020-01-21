@@ -2,6 +2,7 @@ package org.gaborbalazs.smartplatform.edgeservice.web.api;
 
 import java.util.Set;
 
+import org.gaborbalazs.smartplatform.edgeservice.service.enums.GeneratorType;
 import org.gaborbalazs.smartplatform.edgeservice.service.enums.LotteryType;
 
 import io.swagger.annotations.Api;
@@ -25,5 +26,6 @@ public interface LotteryNumberRetrieveSwaggerApi {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 500, message = "Internal Server Error")})
     Set<Integer> retrieve(
-            @ApiParam(value = "Lottery type", required = true, allowableValues = "five-out-of-ninety,six-out-of-forty-five,scandinavian") LotteryType lotteryType);
+            @ApiParam(value = "Lottery type", required = true, allowableValues = "five-out-of-ninety,six-out-of-forty-five,scandinavian") LotteryType lotteryType,
+            @ApiParam(value = "Generator type", allowableValues = "default,experimental") GeneratorType generatorType);
 }

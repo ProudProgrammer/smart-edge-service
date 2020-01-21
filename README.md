@@ -30,7 +30,7 @@ With start script:
 $ git clone https://github.com/ProudProgrammer/smart-tools.git
 $ ./start.sh
 ```
-Usage helper of start script: 
+Usage of helper of start script: 
 ```
 $ ./start.sh -h
 ```
