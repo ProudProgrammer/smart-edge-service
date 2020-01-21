@@ -15,7 +15,7 @@ public class LotteryNumberRetrieveService {
         this.lotteryNumberGeneratorClient = lotteryNumberGeneratorClientAdapter;
     }
 
-    public SortedSet<Integer> retrieveRandom(LotteryType lotteryType) {
-        return lotteryNumberGeneratorClient.generateRandom(lotteryType);
+    public SortedSet<Integer> retrieve(LotteryType lotteryType) {
+        return lotteryNumberGeneratorClient.generate(lotteryType);
     }
 }

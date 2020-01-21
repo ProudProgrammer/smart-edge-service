@@ -24,6 +24,6 @@ public interface LotteryNumberRetrieveSwaggerApi {
     @ApiResponses( {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 500, message = "Internal Server Error")})
-    Set<Integer> retrieveRandom(
+    Set<Integer> retrieve(
             @ApiParam(value = "Lottery type", required = true, allowableValues = "five-out-of-ninety,six-out-of-forty-five,scandinavian") LotteryType lotteryType);
 }

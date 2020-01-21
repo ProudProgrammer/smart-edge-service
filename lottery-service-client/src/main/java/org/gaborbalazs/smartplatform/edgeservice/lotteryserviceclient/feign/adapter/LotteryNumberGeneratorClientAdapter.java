@@ -20,7 +20,7 @@ public class LotteryNumberGeneratorClientAdapter implements LotteryNumberGenerat
     }
 
     @Override
-    public SortedSet<Integer> generateRandom(LotteryType lotteryType) {
+    public SortedSet<Integer> generate(LotteryType lotteryType) {
         return feignLotteryNumberGeneratorClient.generateRandom(lotteryTypeConverter.convert(lotteryType));
     }
 }

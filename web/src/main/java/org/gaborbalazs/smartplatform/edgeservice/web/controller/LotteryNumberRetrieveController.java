@@ -21,8 +21,8 @@ class LotteryNumberRetrieveController implements LotteryNumberRetrieveApi, Lotte
     }
 
     @Override
-    public SortedSet<Integer> retrieveRandom(LotteryType lotteryType) {
-        return lotteryNumberRetrieveService.retrieveRandom(lotteryType);
+    public SortedSet<Integer> retrieve(LotteryType lotteryType) {
+        return lotteryNumberRetrieveService.retrieve(lotteryType);
     }
 
     @InitBinder

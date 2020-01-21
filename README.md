@@ -15,21 +15,24 @@ Without tests and with docker image creation: mvn clean install -Pfast,docker
 - https://github.com/ProudProgrammer/smart-logging-filter
 - https://github.com/ProudProgrammer/smart-lottery-service-client
 ### Build
+Manually (order is count):
 ```
-Manually:
 $ git clone https://github.com/ProudProgrammer/smart-logging-filter.git
 $ mvn clean install
 $ git clone https://github.com/ProudProgrammer/smart-lottery-service-client.git
 $ mvn clean install
 $ git clone https://github.com/ProudProgrammer/smart-edge-service.git
 $ mvn clean install
-
+```
 With start script:
+- https://github.com/ProudProgrammer/smart-tools
+```
 $ git clone https://github.com/ProudProgrammer/smart-tools.git
 $ ./start.sh
-
-See readme: https://github.com/ProudProgrammer/smart-tools/blob/master/README.md
-Use helper of start script: $ ./start.sh -h
+```
+Usage helper of start script: 
+```
+$ ./start.sh -h
 ```
 ### Modular architecture of Edge Service
 ![Modular Architecture](https://raw.githubusercontent.com/ProudProgrammer/smart-tools/master/plantuml/modular-architecture-edge-service.png)

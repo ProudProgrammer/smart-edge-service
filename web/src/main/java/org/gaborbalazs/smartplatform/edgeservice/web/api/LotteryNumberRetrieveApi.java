@@ -12,5 +12,5 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public interface LotteryNumberRetrieveApi {
 
     @RequestMapping(value = "/{lotteryType}/numbers/random", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    Set<Integer> retrieveRandom(@PathVariable("lotteryType") LotteryType lotteryType);
+    Set<Integer> retrieve(@PathVariable("lotteryType") LotteryType lotteryType);
 }
