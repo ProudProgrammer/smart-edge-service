@@ -15,7 +15,7 @@ Without tests and with docker image creation: mvn clean install -Pfast,docker
 - https://github.com/ProudProgrammer/smart-logging-filter
 - https://github.com/ProudProgrammer/smart-lottery-service-client
 ### Build
-Manually (order is count):
+Manually (the order is important):
 ```
 $ git clone https://github.com/ProudProgrammer/smart-logging-filter.git
 $ mvn clean install
