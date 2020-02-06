@@ -34,7 +34,7 @@ public class WireMockService {
     }
 
     public void setUpLotteryServiceGenerateRandomStub(LotteryType lotteryType, String responseFile, HttpStatus httpStatus) {
-        setUpStub("/lottery/" + lotteryType.getPathVariableName() + "/numbers/random", "lotteryService/" + responseFile + ".json", httpStatus);
+        setUpStub("/lottery/" + lotteryType.getPathVariableName() + "/numbers", "lotteryService/" + responseFile + ".json", httpStatus);
     }
 
     private void setUpStub(String urlPattern, String responseFilePath, HttpStatus httpStatus) {
