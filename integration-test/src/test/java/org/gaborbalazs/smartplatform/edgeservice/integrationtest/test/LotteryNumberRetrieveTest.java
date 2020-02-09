@@ -66,6 +66,6 @@ class LotteryNumberRetrieveTest extends TestBase {
     }
 
     private String getEdgeServiceLotteryNumberRetrieveUrl(LotteryType lotteryType) {
-        return "/retrieve/lottery/" + lotteryType.getPathVariableName() + "/numbers/random";
+        return "/retrieve/lottery/" + lotteryType.getPathVariableName() + "/numbers";
     }
 }

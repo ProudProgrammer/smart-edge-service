@@ -1,4 +1,4 @@
-package org.gaborbalazs.smartplatform.edgeservice.service.iface;
+package org.gaborbalazs.smartplatform.edgeservice.service.retrieve.iface;
 
 import java.util.SortedSet;
 

@@ -7,7 +7,7 @@ import org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.conv
 import org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.converter.LotteryTypeConverter;
 import org.gaborbalazs.smartplatform.edgeservice.service.enums.GeneratorType;
 import org.gaborbalazs.smartplatform.edgeservice.service.enums.LotteryType;
-import org.gaborbalazs.smartplatform.edgeservice.service.iface.LotteryNumberGeneratorClient;
+import org.gaborbalazs.smartplatform.edgeservice.service.retrieve.iface.LotteryNumberGeneratorClient;
 import org.springframework.stereotype.Component;
 
 @Component
