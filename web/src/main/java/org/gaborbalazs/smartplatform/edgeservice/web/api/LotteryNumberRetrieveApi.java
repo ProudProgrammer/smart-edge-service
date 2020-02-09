@@ -1,6 +1,7 @@
 package org.gaborbalazs.smartplatform.edgeservice.web.api;
 
 import java.util.Set;
+import java.util.SortedSet;
 
 import org.gaborbalazs.smartplatform.edgeservice.service.enums.GeneratorType;
 import org.gaborbalazs.smartplatform.edgeservice.service.enums.LotteryType;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/retrieve/lottery")
 public interface LotteryNumberRetrieveApi {
 
-    @RequestMapping(value = "/{lotteryType}/numbers/random", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/{lotteryType}/numbers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     Set<Integer> retrieve(@PathVariable("lotteryType") LotteryType lotteryType, @RequestParam(defaultValue = "default") GeneratorType generatorType);
+
+    @RequestMapping(value = "/numbers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    SortedSet<Integer> retrieve(@RequestParam int quantity, @RequestParam int poolSize, @RequestParam(defaultValue = "default") GeneratorType generatorType);
 }

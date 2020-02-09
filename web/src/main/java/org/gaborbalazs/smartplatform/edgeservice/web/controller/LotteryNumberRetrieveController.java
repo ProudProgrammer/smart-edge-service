@@ -27,6 +27,11 @@ class LotteryNumberRetrieveController implements LotteryNumberRetrieveApi, Lotte
         return lotteryNumberRetrieveService.retrieve(lotteryType, generatorType);
     }
 
+    @Override
+    public SortedSet<Integer> retrieve(int quantity, int poolSize, GeneratorType generatorType) {
+        return lotteryNumberRetrieveService.retrieve(quantity, poolSize, generatorType);
+    }
+
     @InitBinder
     void initBinder(WebDataBinder webDataBinder) {
         webDataBinder.registerCustomEditor(LotteryType.class, new LotteryTypeEditor());

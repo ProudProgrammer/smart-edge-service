@@ -28,4 +28,9 @@ public class LotteryNumberGeneratorClientAdapter implements LotteryNumberGenerat
     public SortedSet<Integer> generate(LotteryType lotteryType, GeneratorType generatorType) {
         return feignLotteryNumberGeneratorClient.generate(lotteryTypeConverter.convert(lotteryType), generatorTypeConverter.convert(generatorType));
     }
+
+    @Override
+    public SortedSet<Integer> generate(int quantity, int poolSize, GeneratorType generatorType) {
+        return feignLotteryNumberGeneratorClient.generate(quantity, poolSize, generatorTypeConverter.convert(generatorType));
+    }
 }

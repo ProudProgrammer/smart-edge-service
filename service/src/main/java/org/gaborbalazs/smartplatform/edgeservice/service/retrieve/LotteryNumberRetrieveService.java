@@ -19,4 +19,8 @@ public class LotteryNumberRetrieveService {
     public SortedSet<Integer> retrieve(LotteryType lotteryType, GeneratorType generatorType) {
         return lotteryNumberGeneratorClient.generate(lotteryType, generatorType);
     }
+
+    public SortedSet<Integer> retrieve(int quantity, int poolSize, GeneratorType generatorType) {
+        return lotteryNumberGeneratorClient.generate(quantity, poolSize, generatorType);
+    }
 }
