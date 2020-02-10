@@ -30,7 +30,11 @@ public class LoggerAspect {
     private void inServiceLayer() {
     }
 
-    @Around("inWebLayer() || inServiceLayer()")
+    @Pointcut("within(org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient..*)")
+    private void inLotteryServiceClientLayer() {
+    }
+
+    @Around("inWebLayer() || inServiceLayer() || inLotteryServiceClientLayer()")
     Object aroundMethods(ProceedingJoinPoint joinPoint) throws Throwable {
         Logger logger = LoggerFactory.getLogger(joinPoint.getTarget().getClass());
         List<Object> args = List.of(joinPoint.getArgs());
