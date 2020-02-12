@@ -1,4 +1,4 @@
-package org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.exception;
+package org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.decoder;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -6,6 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.nio.charset.Charset;
 
 import org.apache.commons.io.IOUtils;
+import org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.component.ResponseHeaderSetter;
 import org.gaborbalazs.smartplatform.edgeservice.service.retrieve.exception.LotteryNumberGeneratorClientException;
 import org.slf4j.Logger;
 import org.springframework.http.HttpStatus;
@@ -21,16 +22,18 @@ import feign.Response;
 import feign.codec.ErrorDecoder;
 
 @Component
-public class LotteryServiceErrorDecoder implements ErrorDecoder {
+class ResponseErrorDecoder implements ErrorDecoder {
 
+    private ResponseHeaderSetter responseHeaderSetter;
     private Logger logger;
 
-    LotteryServiceErrorDecoder(Logger logger) {
+    ResponseErrorDecoder(Logger logger) {
         this.logger = logger;
     }
 
     @Override
     public Exception decode(String methodKey, Response response) {
+        responseHeaderSetter.setResponseHeaders(response);
         Exception exception;
         if (response.status() == HttpStatus.BAD_REQUEST.value()) {
             try {

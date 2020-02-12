@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.SortedSet;
 
 @RestController
-class RetrieveControllerLotteryNumber implements RetrieveLotteryNumberApi, RetrieveLotteryNumberSwaggerApi {
+class RetrieveLotteryNumberController implements RetrieveLotteryNumberApi, RetrieveLotteryNumberSwaggerApi {
 
     private final RetrieveLotteryNumberService defaultRetrieveLotteryNumberService;
 
-    RetrieveControllerLotteryNumber(RetrieveLotteryNumberService defaultRetrieveLotteryNumberService) {
+    RetrieveLotteryNumberController(RetrieveLotteryNumberService defaultRetrieveLotteryNumberService) {
         this.defaultRetrieveLotteryNumberService = defaultRetrieveLotteryNumberService;
     }
 
