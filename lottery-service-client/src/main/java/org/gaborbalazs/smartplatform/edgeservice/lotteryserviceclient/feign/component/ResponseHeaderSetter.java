@@ -27,14 +27,22 @@ public class ResponseHeaderSetter {
     }
 
     private void setLocaleHeader(Response response) {
-        String localeHeader = response.headers().get(HeaderParameterName.LOCALE.getHeaderName()).stream().collect(Collectors.joining(","));
-        httpServletResponse.addHeader(HeaderParameterName.LOCALE.getHeaderName(), localeHeader);
-        logger.debug("Locale header has been set to: " + localeHeader);
+        if (response.headers().get(HeaderParameterName.LOCALE.getHeaderName()) != null) {
+            String localeHeader = response.headers().get(HeaderParameterName.LOCALE.getHeaderName()).stream().collect(Collectors.joining(","));
+            httpServletResponse.addHeader(HeaderParameterName.LOCALE.getHeaderName(), localeHeader);
+            logger.debug("Locale header has been set to: " + localeHeader);
+        } else {
+            logger.debug("Local header could not be set.");
+        }
     }
 
     private void setGeneratorTypeHeader(Response response) {
-        String generatorTypeHeader = response.headers().get(HeaderParameterName.GENERATOR_TYPE.getHeaderName()).stream().collect(Collectors.joining(","));
-        httpServletResponse.addHeader(HeaderParameterName.GENERATOR_TYPE.getHeaderName(), generatorTypeHeader);
-        logger.debug("GeneratorType header has been set to: " + generatorTypeHeader);
+        if (response.headers().get(HeaderParameterName.GENERATOR_TYPE.getHeaderName()) != null) {
+            String generatorTypeHeader = response.headers().get(HeaderParameterName.GENERATOR_TYPE.getHeaderName()).stream().collect(Collectors.joining(","));
+            httpServletResponse.addHeader(HeaderParameterName.GENERATOR_TYPE.getHeaderName(), generatorTypeHeader);
+            logger.debug("GeneratorType header has been set to: " + generatorTypeHeader);
+        } else {
+            logger.debug("GeneratorType header could not be set.");
+        }
     }
 }
