@@ -1,14 +1,15 @@
 package org.gaborbalazs.smartplatform.edgeservice.integrationtest.framework;
 
-import com.google.common.io.Resources;
-import org.junit.jupiter.api.Assertions;
-import org.springframework.stereotype.Component;
-
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
+import org.junit.jupiter.api.Assertions;
+import org.springframework.stereotype.Component;
+
+import com.google.common.io.Resources;
+
 @Component
-class JsonResourceProvider {
+public class JsonResourceProvider {
 
     private static final String UNKNOWN_RESOURCE = "Unknown resource: ";
 
@@ -18,7 +19,7 @@ class JsonResourceProvider {
      * @param resourceFilePath the resource file path
      * @return the file content
      */
-    String getJsonContent(final String resourceFilePath) {
+    public String getJsonContent(final String resourceFilePath) {
         String result;
         try {
             result = Resources.toString(Resources.getResource(resourceFilePath), StandardCharsets.UTF_8);

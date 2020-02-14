@@ -1,0 +1,9 @@
+{
+  "timestamp": "2020-02-14T14:46:28.2006374+01:00",
+  "status": 501,
+  "error": "Not Implemented",
+  "message": "Quantity 7 and pool size 35 together are unsupported. Only quantity 5 and pool size 90 together are supported.",
+  "consumerName": "test",
+  "requestId": "test0000-0000-0000-0000-test00000000",
+  "path": "/lottery/scandinavian/numbers"
+}
