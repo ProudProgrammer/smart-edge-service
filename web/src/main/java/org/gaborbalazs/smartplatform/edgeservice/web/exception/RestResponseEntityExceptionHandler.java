@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
+import springfox.documentation.swagger.readers.parameter.SwaggerExpandedParameterBuilder;
 
+import javax.servlet.http.HttpServletRequest;
 import java.time.ZonedDateTime;
 
 @RestControllerAdvice(basePackages = {"org.gaborbalazs.smartplatform.edgeservice"})
@@ -27,13 +29,13 @@ class RestResponseEntityExceptionHandler {
 
     @ResponseStatus(HttpStatus.NOT_IMPLEMENTED)
     @ExceptionHandler(UnsupportedOperationException.class)
-    ExceptionResponse handleUnsupportedOperationException(Exception exception, WebRequest webRequest) {
+    ExceptionResponse handleUnsupportedOperationException(Exception exception, WebRequest request) {
         return createExceptionResponse(exception, HttpStatus.NOT_IMPLEMENTED);
     }
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(LotteryNumberGeneratorClientException.class)
-    ExceptionResponse handleLotteryNumberGeneratorClientException(Exception exception, WebRequest webRequest) {
+    ExceptionResponse handleLotteryNumberGeneratorClientException(Exception exception, WebRequest request) {
         return createExceptionResponse(exception, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
@@ -43,9 +45,8 @@ class RestResponseEntityExceptionHandler {
                 .withStatus(httpStatus.value())
                 .withError(httpStatus.getReasonPhrase())
                 .withMessage(exception.getMessage())
-                .withConsumerName(requestContext.getConsumerName())
-                .withRequestId(requestContext.getRequestId())
                 .withPath(requestContext.getRequestURI())
+                .withQuery(requestContext.getRequestQuery())
                 .build();
     }
 }

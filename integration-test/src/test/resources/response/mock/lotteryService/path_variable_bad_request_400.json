@@ -1,0 +1,8 @@
+{
+  "timestamp": "2020-02-16T00:02:01.5573393+01:00",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Failed to convert value of type 'java.lang.String' to required type 'org.gaborbalazs.smartplatform.edgeservice.service.enums.LotteryType'; nested exception is java.lang.IllegalArgumentException: Path variable cannot be converted to LotteryType: hello",
+  "path": "/retrieve/lottery/hello/numbers",
+  "query": null
+}

@@ -56,13 +56,13 @@ public class TestBase {
         wireMockService.stop();
     }
 
-    protected void setUpStub(String urlPattern, String responseFilePath, HttpStatus httpStatus, Map<String, String> headers) {
+    protected void setUpStub(String url, String responseFilePath, HttpStatus httpStatus, Map<String, String> headers) {
         ResponseDefinitionBuilder responseDefinitionBuilder = WireMock.aResponse()
                 .withStatus(httpStatus.value())
                 .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON.toString())
                 .withBody(jsonResourceProvider.getJsonContent(BASE_RESOURCE_PATH + responseFilePath));
         headers.forEach(responseDefinitionBuilder::withHeader);
-        WireMock.stubFor(WireMock.get(WireMock.urlPathMatching(urlPattern)).willReturn(responseDefinitionBuilder));
+        WireMock.stubFor(WireMock.get(WireMock.urlEqualTo(url)).willReturn(responseDefinitionBuilder));
     }
 
     protected DocumentContext getResponseAsJsonParser(MvcResult mvcResult) {

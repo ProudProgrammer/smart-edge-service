@@ -1,17 +1,16 @@
 package org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.component;
 
-import java.util.stream.Collectors;
-
-import javax.servlet.http.HttpServletResponse;
-
+import feign.Response;
 import org.gaborbalazs.smartplatform.edgeservice.service.enums.HeaderParameterName;
 import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
 
-import feign.Response;
+import javax.servlet.http.HttpServletResponse;
 
 @Component
 public class ResponseHeaderSetter {
+
+    private static final String UNIDENTIFIED = "unidentified";
 
     private final HttpServletResponse httpServletResponse;
     private final Logger logger;
@@ -22,27 +21,53 @@ public class ResponseHeaderSetter {
     }
 
     public void setResponseHeaders(Response response) {
+        setConsumerNameHeader(response);
+        setRequestIdHeader(response);
         setLocaleHeader(response);
         setGeneratorTypeHeader(response);
     }
 
+    private void setConsumerNameHeader(Response response) {
+        if (response.headers().get(HeaderParameterName.CONSUMER_NAME.getHeaderName()) != null) {
+            String consumerNameHeader = String.join(",", response.headers().get(HeaderParameterName.CONSUMER_NAME.getHeaderName()));
+            httpServletResponse.addHeader(HeaderParameterName.CONSUMER_NAME.getHeaderName(), consumerNameHeader);
+            logger.debug("Consumer-Name header has been set to: " + consumerNameHeader);
+        } else {
+            httpServletResponse.addHeader(HeaderParameterName.CONSUMER_NAME.getHeaderName(), UNIDENTIFIED);
+            logger.debug("Consumer-Name header could not be set.");
+        }
+    }
+
+    private void setRequestIdHeader(Response response) {
+        if (response.headers().get(HeaderParameterName.REQUEST_ID.getHeaderName()) != null) {
+            String requestIdHeader = String.join(",", response.headers().get(HeaderParameterName.REQUEST_ID.getHeaderName()));
+            httpServletResponse.addHeader(HeaderParameterName.REQUEST_ID.getHeaderName(), requestIdHeader);
+            logger.debug("Request-Id header has been set to: " + requestIdHeader);
+        } else {
+            httpServletResponse.addHeader(HeaderParameterName.REQUEST_ID.getHeaderName(), UNIDENTIFIED);
+            logger.debug("Request-Id header could not be set.");
+        }
+    }
+
     private void setLocaleHeader(Response response) {
         if (response.headers().get(HeaderParameterName.LOCALE.getHeaderName()) != null) {
-            String localeHeader = response.headers().get(HeaderParameterName.LOCALE.getHeaderName()).stream().collect(Collectors.joining(","));
+            String localeHeader = String.join(",", response.headers().get(HeaderParameterName.LOCALE.getHeaderName()));
             httpServletResponse.addHeader(HeaderParameterName.LOCALE.getHeaderName(), localeHeader);
             logger.debug("Locale header has been set to: " + localeHeader);
         } else {
+            httpServletResponse.addHeader(HeaderParameterName.LOCALE.getHeaderName(), UNIDENTIFIED);
             logger.debug("Local header could not be set.");
         }
     }
 
     private void setGeneratorTypeHeader(Response response) {
         if (response.headers().get(HeaderParameterName.GENERATOR_TYPE.getHeaderName()) != null) {
-            String generatorTypeHeader = response.headers().get(HeaderParameterName.GENERATOR_TYPE.getHeaderName()).stream().collect(Collectors.joining(","));
+            String generatorTypeHeader = String.join(",", response.headers().get(HeaderParameterName.GENERATOR_TYPE.getHeaderName()));
             httpServletResponse.addHeader(HeaderParameterName.GENERATOR_TYPE.getHeaderName(), generatorTypeHeader);
-            logger.debug("GeneratorType header has been set to: " + generatorTypeHeader);
+            logger.debug("Generator-Type header has been set to: " + generatorTypeHeader);
         } else {
-            logger.debug("GeneratorType header could not be set.");
+            httpServletResponse.addHeader(HeaderParameterName.GENERATOR_TYPE.getHeaderName(), UNIDENTIFIED);
+            logger.debug("Generator-Type header could not be set.");
         }
     }
 }

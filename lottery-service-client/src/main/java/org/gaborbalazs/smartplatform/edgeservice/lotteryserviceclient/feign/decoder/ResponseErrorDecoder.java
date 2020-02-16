@@ -1,10 +1,12 @@
 package org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.decoder;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.lang.reflect.InvocationTargetException;
-import java.nio.charset.Charset;
-
+import com.jayway.jsonpath.Configuration;
+import com.jayway.jsonpath.DocumentContext;
+import com.jayway.jsonpath.JsonPath;
+import com.jayway.jsonpath.Option;
+import feign.FeignException;
+import feign.Response;
+import feign.codec.ErrorDecoder;
 import org.apache.commons.io.IOUtils;
 import org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.component.ResponseHeaderSetter;
 import org.gaborbalazs.smartplatform.edgeservice.service.retrieve.exception.LotteryNumberGeneratorClientException;
@@ -12,14 +14,10 @@ import org.slf4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
-import com.jayway.jsonpath.Configuration;
-import com.jayway.jsonpath.DocumentContext;
-import com.jayway.jsonpath.JsonPath;
-import com.jayway.jsonpath.Option;
-
-import feign.FeignException;
-import feign.Response;
-import feign.codec.ErrorDecoder;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.nio.charset.Charset;
 
 @Component
 class ResponseErrorDecoder implements ErrorDecoder {
@@ -27,7 +25,8 @@ class ResponseErrorDecoder implements ErrorDecoder {
     private ResponseHeaderSetter responseHeaderSetter;
     private Logger logger;
 
-    ResponseErrorDecoder(Logger logger) {
+    ResponseErrorDecoder(ResponseHeaderSetter responseHeaderSetter, Logger logger) {
+        this.responseHeaderSetter = responseHeaderSetter;
         this.logger = logger;
     }
 

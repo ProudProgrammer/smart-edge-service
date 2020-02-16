@@ -1,10 +1,5 @@
 package org.gaborbalazs.smartplatform.edgeservice.web.configuration;
 
-import java.util.Locale;
-import java.util.UUID;
-
-import javax.servlet.http.HttpServletRequest;
-
 import org.apache.commons.lang3.StringUtils;
 import org.gaborbalazs.smartplatform.edgeservice.service.context.RequestContext;
 import org.gaborbalazs.smartplatform.edgeservice.service.enums.HeaderParameterName;
@@ -13,6 +8,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.annotation.RequestScope;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Locale;
+import java.util.UUID;
+
 /**
  * {@link RequestContext} configuration.
  * When RequestId header is blank UUID.randomUUID().toString() is used.
@@ -20,6 +19,8 @@ import org.springframework.web.context.annotation.RequestScope;
  */
 @Configuration
 class RequestContextConfiguration {
+
+    private static final String CONSUMER_NAME = "edge-service";
 
     private final HttpServletRequest httpServletRequest;
     private final Logger logger;
@@ -32,13 +33,14 @@ class RequestContextConfiguration {
     @Bean
     @RequestScope
     RequestContext requestContext() {
-        String consumerName = httpServletRequest.getHeader(HeaderParameterName.CONSUMER_NAME.getHeaderName());
+        String consumerName = getConsumerName();
         String requestId = getRequestId();
         Locale locale = getLocal();
         return RequestContext.newBuilder()
                 .withConsumerName(consumerName)
                 .withRequestId(requestId)
                 .withRequestURI(httpServletRequest.getRequestURI())
+                .withRequestQuery(httpServletRequest.getQueryString())
                 .withLocale(locale)
                 .build();
     }
@@ -48,12 +50,25 @@ class RequestContextConfiguration {
         String requestId;
         if (StringUtils.isBlank(requestIdHeader)) {
             requestId = UUID.randomUUID().toString();
-            logger.debug("RequestId header is blank. Request id has been generated: " + requestId);
+            logger.debug("Request-Id header is blank. Request id has been generated: " + requestId);
         } else {
             requestId = requestIdHeader;
-            logger.debug("RequestId header is specified. Incoming request id: " + requestId);
+            logger.debug("Request-Id header is specified. Incoming request id: " + requestId);
         }
         return requestId;
+    }
+
+    private String getConsumerName() {
+        String consumerNameHeader = httpServletRequest.getHeader(HeaderParameterName.CONSUMER_NAME.getHeaderName());
+        String consumerName;
+        if (StringUtils.isBlank(consumerNameHeader)) {
+            consumerName = CONSUMER_NAME;
+            logger.debug("Consumer-Name header is blank. Consumer will be: " + CONSUMER_NAME);
+        } else {
+            consumerName = consumerNameHeader;
+            logger.debug("Consumer-Name header is specified. Incoming consumer name: " + consumerNameHeader);
+        }
+        return consumerName;
     }
 
     private Locale getLocal() {

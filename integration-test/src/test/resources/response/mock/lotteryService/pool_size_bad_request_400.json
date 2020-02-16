@@ -1,0 +1,8 @@
+{
+  "timestamp": "2020-02-15T23:51:29.9673748+01:00",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Pool size must not be larger than 1 000. Pool size: 1 001",
+  "path": "/retrieve/lottery/numbers",
+  "query": "quantity=6&poolSize=1001"
+}

@@ -1,21 +1,23 @@
 package org.gaborbalazs.smartplatform.edgeservice.service.context;
 
-import java.util.Locale;
-
 import org.gaborbalazs.smartplatform.edgeservice.service.enums.HeaderParameterName;
 import org.springframework.core.style.ToStringCreator;
+
+import java.util.Locale;
 
 public class RequestContext {
 
     private final String consumerName;
     private final String requestId;
     private final String requestURI;
+    private final String requestQuery;
     private final Locale locale;
 
     public RequestContext(Builder builder) {
         this.consumerName = builder.consumerName;
         this.requestId = builder.requestId;
         this.requestURI = builder.requestURI;
+        this.requestQuery = builder.requestQuery;
         this.locale = builder.locale;
     }
 
@@ -31,6 +33,10 @@ public class RequestContext {
         return requestURI;
     }
 
+    public String getRequestQuery() {
+        return requestQuery;
+    }
+
     public Locale getLocale() {
         return locale;
     }
@@ -41,6 +47,7 @@ public class RequestContext {
                 .append(HeaderParameterName.CONSUMER_NAME.getHeaderName(), consumerName)
                 .append(HeaderParameterName.REQUEST_ID.getHeaderName(), requestId)
                 .append("RequestURI", requestURI)
+                .append("RequestQuery", requestQuery)
                 .append(HeaderParameterName.LOCALE.getHeaderName(), locale)
                 .toString();
     }
@@ -53,6 +60,7 @@ public class RequestContext {
         private String consumerName;
         private String requestId;
         private String requestURI;
+        private String requestQuery;
         private Locale locale;
 
         private Builder() {
@@ -70,6 +78,11 @@ public class RequestContext {
 
         public Builder withRequestURI(String requestURI) {
             this.requestURI = requestURI;
+            return this;
+        }
+
+        public Builder withRequestQuery(String requestQuery) {
+            this.requestQuery = requestQuery;
             return this;
         }
 

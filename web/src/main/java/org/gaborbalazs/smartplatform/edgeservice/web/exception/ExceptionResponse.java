@@ -8,18 +8,16 @@ public final class ExceptionResponse {
     private final int status;
     private final String error;
     private final String message;
-    private final String consumerName;
-    private final String requestId;
     private final String path;
+    private final String query;
 
     private ExceptionResponse(Builder builder) {
         this.timestamp = builder.timestamp;
         this.status = builder.status;
         this.error = builder.error;
         this.message = builder.message;
-        this.consumerName = builder.consumerName;
-        this.requestId = builder.requestId;
         this.path = builder.path;
+        this.query = builder.query;
     }
 
     public ZonedDateTime getTimestamp() {
@@ -38,16 +36,12 @@ public final class ExceptionResponse {
         return message;
     }
 
-    public String getConsumerName() {
-        return consumerName;
-    }
-
-    public String getRequestId() {
-        return requestId;
-    }
-
     public String getPath() {
         return path;
+    }
+
+    public String getQuery() {
+        return query;
     }
 
     public static Builder newBuilder() {
@@ -59,9 +53,8 @@ public final class ExceptionResponse {
         private int status;
         private String error;
         private String message;
-        private String consumerName;
-        private String requestId;
         private String path;
+        private String query;
 
         private Builder() {
         }
@@ -86,18 +79,13 @@ public final class ExceptionResponse {
             return this;
         }
 
-        public Builder withConsumerName(String consumerName) {
-            this.consumerName = consumerName;
-            return this;
-        }
-
-        public Builder withRequestId(String requestId) {
-            this.requestId = requestId;
-            return this;
-        }
-
         public Builder withPath(String path) {
             this.path = path;
+            return this;
+        }
+
+        public Builder withQuery(String query) {
+            this.query = query;
             return this;
         }
 
