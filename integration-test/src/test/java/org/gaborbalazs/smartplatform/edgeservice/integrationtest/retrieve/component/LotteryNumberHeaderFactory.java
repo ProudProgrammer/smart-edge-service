@@ -13,12 +13,12 @@ public class LotteryNumberHeaderFactory {
             HeaderParameterName.REQUEST_ID.getHeaderName(), "test0000-0000-0000-0000-test00000000",
             HeaderParameterName.CONSUMER_NAME.getHeaderName(), "test",
             HeaderParameterName.LOCALE.getHeaderName(), "hu_HU");
-    private static final Map<String, String> DEFAULT_RESPONSE_HEADERS = Map.of(
+    private static final Map<String, String> LOTTERY_SERVICE_DEFAULT_GENERATOR_RESPONSE_HEADERS = Map.of(
             HeaderParameterName.GENERATOR_TYPE.getHeaderName(), GeneratorType.DEFAULT.getValue(),
             HeaderParameterName.REQUEST_ID.getHeaderName(), "test0000-0000-0000-0000-test00000000",
             HeaderParameterName.CONSUMER_NAME.getHeaderName(), "test",
             HeaderParameterName.LOCALE.getHeaderName(), "hu_HU");
-    private static final Map<String, String> EXPERIMENTAL_RESPONSE_HEADERS = Map.of(
+    private static final Map<String, String> LOTTERY_SERVICE_EXPERIMENTAL_GENERATOR_RESPONSE_HEADERS = Map.of(
             HeaderParameterName.GENERATOR_TYPE.getHeaderName(), GeneratorType.EXPERIMENTAL.getValue(),
             HeaderParameterName.REQUEST_ID.getHeaderName(), "test0000-0000-0000-0000-test00000000",
             HeaderParameterName.CONSUMER_NAME.getHeaderName(), "test",
@@ -28,12 +28,12 @@ public class LotteryNumberHeaderFactory {
         return DEFAULT_REQUEST_HEADERS;
     }
 
-    public Map<String, String> getDefaultResponseHeaders() {
-        return DEFAULT_RESPONSE_HEADERS;
+    public Map<String, String> getLotteryServiceDefaultGeneratorResponseHeaders() {
+        return LOTTERY_SERVICE_DEFAULT_GENERATOR_RESPONSE_HEADERS;
     }
 
-    public Map<String, String> getExperimentalResponseHeaders() {
-        return EXPERIMENTAL_RESPONSE_HEADERS;
+    public Map<String, String> getLotteryServiceExperimentalGeneratorResponseHeaders() {
+        return LOTTERY_SERVICE_EXPERIMENTAL_GENERATOR_RESPONSE_HEADERS;
     }
 
     public String getDefaultRequestIdHeader() {

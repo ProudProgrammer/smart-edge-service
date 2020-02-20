@@ -1,5 +1,7 @@
 package org.gaborbalazs.smartplatform.edgeservice.web.controller;
 
+import java.util.SortedSet;
+
 import org.gaborbalazs.smartplatform.edgeservice.service.enums.GeneratorType;
 import org.gaborbalazs.smartplatform.edgeservice.service.enums.LotteryType;
 import org.gaborbalazs.smartplatform.edgeservice.service.retrieve.iface.RetrieveLotteryNumberService;
@@ -10,8 +12,6 @@ import org.gaborbalazs.smartplatform.edgeservice.web.editor.LotteryTypeEditor;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.SortedSet;
 
 @RestController
 class RetrieveLotteryNumberController implements RetrieveLotteryNumberApi, RetrieveLotteryNumberSwaggerApi {

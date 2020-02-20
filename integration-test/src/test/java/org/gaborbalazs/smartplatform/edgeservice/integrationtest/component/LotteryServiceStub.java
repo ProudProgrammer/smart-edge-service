@@ -12,29 +12,36 @@ import org.springframework.stereotype.Component;
 public class LotteryServiceStub {
 
     private static final String LOTTERY_SERVICE_RESOURCE_PATH = "lotteryService/";
-    private static final String FILE_EXTENSION = ".json";
 
     @Autowired
     private WireMockService wireMockService;
 
     public void setUp(LotteryType lotteryType, String responseFile, HttpStatus httpStatus, Map<String, String> headers) {
-        wireMockService.setUpStub(getUrl(lotteryType), LOTTERY_SERVICE_RESOURCE_PATH + responseFile + FILE_EXTENSION, httpStatus, headers);
+        setUp(lotteryType, GeneratorType.DEFAULT, responseFile, httpStatus, headers);
+    }
+
+    public void setUp(LotteryType lotteryType, GeneratorType generatorType, String responseFile, HttpStatus httpStatus, Map<String, String> headers) {
+        wireMockService.setUpStub(getUrl(lotteryType.getPathVariableName(), generatorType.getValue()), LOTTERY_SERVICE_RESOURCE_PATH + responseFile, httpStatus, headers);
     }
 
     public void setUp(int quantity, int poolSize, String responseFile, HttpStatus httpStatus, Map<String, String> headers) {
-        wireMockService.setUpStub(getUrl(quantity, poolSize), LOTTERY_SERVICE_RESOURCE_PATH + responseFile + FILE_EXTENSION, httpStatus, headers);
+        setUp(quantity, poolSize, GeneratorType.DEFAULT, responseFile, httpStatus, headers);
     }
 
-    private String getUrl(LotteryType lotteryType) {
-        return getUrl(lotteryType, GeneratorType.DEFAULT);
+    public void setUp(int quantity, int poolSize, GeneratorType generatorType, String responseFile, HttpStatus httpStatus, Map<String, String> headers) {
+        wireMockService.setUpStub(getUrl(quantity, poolSize, generatorType), LOTTERY_SERVICE_RESOURCE_PATH + responseFile, httpStatus, headers);
     }
 
-    private String getUrl(LotteryType lotteryType, GeneratorType generatorType) {
-        return "/lottery/" + lotteryType.getPathVariableName() + "/numbers?generatorType=" + generatorType.getValue();
+    public void setUp(String lotteryType, String responseFile, HttpStatus httpStatus, Map<String, String> headers) {
+        setUp(lotteryType, GeneratorType.DEFAULT.getValue(), responseFile, httpStatus, headers);
     }
 
-    private String getUrl(int quantity, int poolSize) {
-        return getUrl(quantity, poolSize, GeneratorType.DEFAULT);
+    public void setUp(String lotteryType, String generatorType, String responseFile, HttpStatus httpStatus, Map<String, String> headers) {
+        wireMockService.setUpStub(getUrl(lotteryType, generatorType), LOTTERY_SERVICE_RESOURCE_PATH + responseFile, httpStatus, headers);
+    }
+
+    private String getUrl(String lotteryType, String generatorType) {
+        return "/lottery/" + lotteryType + "/numbers?generatorType=" + generatorType;
     }
 
     private String getUrl(int quantity, int poolSize, GeneratorType generatorType) {

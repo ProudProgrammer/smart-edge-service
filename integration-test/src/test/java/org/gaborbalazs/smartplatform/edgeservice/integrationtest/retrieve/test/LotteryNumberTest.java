@@ -20,7 +20,7 @@ class LotteryNumberTest extends LotteryNumberBaseTest {
     @Test
     void testWithLotteryTypeOfFiveOutOfNinetyWithoutGeneratorType() throws Exception {
         // GIVEN
-        lotteryServiceStub.setUp(LotteryType.FIVE_OUT_OF_NINETY, "five_out_of_ninety", HttpStatus.OK, lotteryNumberHeaderFactory.getDefaultResponseHeaders());
+        lotteryServiceStub.setUp(LotteryType.FIVE_OUT_OF_NINETY, "five_out_of_ninety.json", HttpStatus.OK, lotteryNumberHeaderFactory.getLotteryServiceDefaultGeneratorResponseHeaders());
         String expectedGeneratorTypeHeader = GeneratorType.DEFAULT.getValue();
         List<Integer> expectedResponse = List.of(1, 2, 3, 4, 5);
 
@@ -43,7 +43,7 @@ class LotteryNumberTest extends LotteryNumberBaseTest {
     @Test
     void testWithLotteryTypeOfSixOutOfFortyFiveWithoutGeneratorType() throws Exception {
         // GIVEN
-        lotteryServiceStub.setUp(LotteryType.SIX_OUT_OF_FORTY_FIVE, "six_out_of_forty_five", HttpStatus.OK, lotteryNumberHeaderFactory.getDefaultResponseHeaders());
+        lotteryServiceStub.setUp(LotteryType.SIX_OUT_OF_FORTY_FIVE, "six_out_of_forty_five.json", HttpStatus.OK, lotteryNumberHeaderFactory.getLotteryServiceDefaultGeneratorResponseHeaders());
         String expectedGeneratorTypeHeader = GeneratorType.DEFAULT.getValue();
         List<Integer> expectedResponse = List.of(1, 2, 3, 4, 5, 6);
 
@@ -66,7 +66,7 @@ class LotteryNumberTest extends LotteryNumberBaseTest {
     @Test
     void testWithLotteryTypeOfScandinavianWithoutGeneratorType() throws Exception {
         // GIVEN
-        lotteryServiceStub.setUp(LotteryType.SCANDINAVIAN, "scandinavian", HttpStatus.OK, lotteryNumberHeaderFactory.getDefaultResponseHeaders());
+        lotteryServiceStub.setUp(LotteryType.SCANDINAVIAN, "scandinavian.json", HttpStatus.OK, lotteryNumberHeaderFactory.getLotteryServiceDefaultGeneratorResponseHeaders());
         String expectedGeneratorTypeHeader = GeneratorType.DEFAULT.getValue();
         List<Integer> expectedResponse = List.of(1, 2, 3, 4, 5, 6, 7);
 
@@ -89,7 +89,7 @@ class LotteryNumberTest extends LotteryNumberBaseTest {
     @Test
     void testWithQuantityAndPoolSizeWithoutGeneratorType() throws Exception {
         // GIVEN
-        lotteryServiceStub.setUp(5, 90, "five_out_of_ninety", HttpStatus.OK, lotteryNumberHeaderFactory.getDefaultResponseHeaders());
+        lotteryServiceStub.setUp(5, 90, "five_out_of_ninety.json", HttpStatus.OK, lotteryNumberHeaderFactory.getLotteryServiceDefaultGeneratorResponseHeaders());
         String expectedGeneratorTypeHeader = GeneratorType.DEFAULT.getValue();
         List<Integer> expectedResponse = List.of(1, 2, 3, 4, 5);
 

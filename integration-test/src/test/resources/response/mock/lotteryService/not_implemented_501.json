@@ -1,8 +1,8 @@
 {
-  "timestamp": "2020-02-15T23:49:51.6102218+01:00",
+  "timestamp": "2020-02-20T10:40:50.1963566+01:00",
   "status": 501,
   "error": "Not Implemented",
-  "message": "Quantity 6 and pool size 59 together are unsupported. Only quantity 5 and pool size 90 together are supported.",
-  "path": "/retrieve/lottery/numbers",
-  "query": "quantity=6&poolSize=59&generatorType=experimental"
+  "message": "Quantity 7 and pool size 35 together are unsupported. Only quantity 5 and pool size 90 together are supported.",
+  "path": "/lottery/scandinavian/numbers",
+  "query": "generatorType=experimental"
 }

@@ -7,19 +7,26 @@ import org.springframework.stereotype.Component;
 @Component
 public class LotteryNumberUrlFactory {
 
+    private static final String BASE_PATH = "/retrieve/lottery/";
+    private static final String BASE_PATH_WITH_NUMBERS_AND_QUANTITY = "/retrieve/lottery/numbers?quantity=";
+
     public String create(LotteryType lotteryType) {
-        return "/retrieve/lottery/" + lotteryType.getPathVariableName() + "/numbers";
+        return create(lotteryType.getPathVariableName());
     }
 
     public String create(LotteryType lotteryType, GeneratorType generatorType) {
-        return "/retrieve/lottery/" + lotteryType.getPathVariableName() + "/numbers?generatorType=" + generatorType.getValue();
+        return BASE_PATH + lotteryType.getPathVariableName() + "/numbers?generatorType=" + generatorType.getValue();
+    }
+
+    public String create(String lotteryType) {
+        return BASE_PATH + lotteryType + "/numbers";
     }
 
     public String create(int quantity, int poolSize) {
-        return "/retrieve/lottery/numbers?quantity=" + quantity + "&poolSize=" + poolSize;
+        return BASE_PATH_WITH_NUMBERS_AND_QUANTITY + quantity + "&poolSize=" + poolSize;
     }
 
     public String create(int quantity, int poolSize, GeneratorType generatorType) {
-        return "/retrieve/lottery/numbers?quantity=" + quantity + "&poolSize=" + poolSize + "?generatorType=" + generatorType;
+        return BASE_PATH_WITH_NUMBERS_AND_QUANTITY + quantity + "&poolSize=" + poolSize + "?generatorType=" + generatorType;
     }
 }
