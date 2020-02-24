@@ -4,8 +4,3 @@ docker run -p 8080:8080 edge-service
 
 # Pass properties to Spring via Docker as environment variables
 docker run -p 8080:8080 -e swagger.title="Hello World" -e swagger.contact-name="Bob" edge-service:1.0-SNAPSHOT
-
-# Some useful docker command
-docker image ls / docker images
-docker container ls / docker ps
-docker container stop [CONTAINER ID]
