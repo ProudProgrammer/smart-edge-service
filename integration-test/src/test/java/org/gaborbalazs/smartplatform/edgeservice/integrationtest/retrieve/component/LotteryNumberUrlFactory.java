@@ -27,6 +27,6 @@ public class LotteryNumberUrlFactory {
     }
 
     public String create(int quantity, int poolSize, GeneratorType generatorType) {
-        return BASE_PATH_WITH_NUMBERS_AND_QUANTITY + quantity + "&poolSize=" + poolSize + "?generatorType=" + generatorType;
+        return BASE_PATH_WITH_NUMBERS_AND_QUANTITY + quantity + "&poolSize=" + poolSize + "&generatorType=" + generatorType.getValue();
     }
 }
