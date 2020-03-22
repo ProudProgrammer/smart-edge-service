@@ -1,7 +1,6 @@
 package org.gaborbalazs.smartplatform.edgeservice.web.controller;
 
-import java.util.SortedSet;
-
+import org.gaborbalazs.smartplatform.edgeservice.service.domain.DrawnNumbers;
 import org.gaborbalazs.smartplatform.edgeservice.service.enums.GeneratorType;
 import org.gaborbalazs.smartplatform.edgeservice.service.enums.LotteryType;
 import org.gaborbalazs.smartplatform.edgeservice.service.retrieve.iface.RetrieveLotteryNumberService;
@@ -23,12 +22,12 @@ class RetrieveLotteryNumberController implements RetrieveLotteryNumberApi, Retri
     }
 
     @Override
-    public SortedSet<Integer> retrieve(LotteryType lotteryType, GeneratorType generatorType) {
+    public DrawnNumbers retrieve(LotteryType lotteryType, GeneratorType generatorType) {
         return defaultRetrieveLotteryNumberService.retrieve(lotteryType, generatorType);
     }
 
     @Override
-    public SortedSet<Integer> retrieve(int quantity, int poolSize, GeneratorType generatorType) {
+    public DrawnNumbers retrieve(int quantity, int poolSize, GeneratorType generatorType) {
         return defaultRetrieveLotteryNumberService.retrieve(quantity, poolSize, generatorType);
     }
 

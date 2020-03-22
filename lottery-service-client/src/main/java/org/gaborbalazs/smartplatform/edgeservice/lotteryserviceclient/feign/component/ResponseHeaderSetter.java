@@ -24,7 +24,6 @@ public class ResponseHeaderSetter {
         setConsumerNameHeader(response);
         setRequestIdHeader(response);
         setLocaleHeader(response);
-        setGeneratorTypeHeader(response);
     }
 
     private void setConsumerNameHeader(Response response) {
@@ -57,17 +56,6 @@ public class ResponseHeaderSetter {
         } else {
             httpServletResponse.addHeader(HeaderParameterName.LOCALE.getHeaderName(), UNIDENTIFIED);
             logger.debug("Local header could not be set.");
-        }
-    }
-
-    private void setGeneratorTypeHeader(Response response) {
-        if (response.headers().get(HeaderParameterName.GENERATOR_TYPE.getHeaderName()) != null) {
-            String generatorTypeHeader = String.join(",", response.headers().get(HeaderParameterName.GENERATOR_TYPE.getHeaderName()));
-            httpServletResponse.addHeader(HeaderParameterName.GENERATOR_TYPE.getHeaderName(), generatorTypeHeader);
-            logger.debug("Generator-Type header has been set to: " + generatorTypeHeader);
-        } else {
-            httpServletResponse.addHeader(HeaderParameterName.GENERATOR_TYPE.getHeaderName(), UNIDENTIFIED);
-            logger.debug("Generator-Type header could not be set.");
         }
     }
 }

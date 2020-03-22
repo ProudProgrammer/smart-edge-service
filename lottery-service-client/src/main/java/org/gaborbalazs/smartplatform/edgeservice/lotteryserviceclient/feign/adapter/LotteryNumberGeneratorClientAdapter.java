@@ -1,10 +1,10 @@
 package org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.adapter;
 
-import java.util.SortedSet;
-
 import org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.client.FeignLotteryNumberGeneratorClient;
+import org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.converter.DrawnNumbersConverter;
 import org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.converter.GeneratorTypeConverter;
 import org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.converter.LotteryTypeConverter;
+import org.gaborbalazs.smartplatform.edgeservice.service.domain.DrawnNumbers;
 import org.gaborbalazs.smartplatform.edgeservice.service.enums.GeneratorType;
 import org.gaborbalazs.smartplatform.edgeservice.service.enums.LotteryType;
 import org.gaborbalazs.smartplatform.edgeservice.service.retrieve.iface.LotteryNumberGeneratorClient;
@@ -16,21 +16,23 @@ public class LotteryNumberGeneratorClientAdapter implements LotteryNumberGenerat
     private final FeignLotteryNumberGeneratorClient feignLotteryNumberGeneratorClient;
     private final LotteryTypeConverter lotteryTypeConverter;
     private final GeneratorTypeConverter generatorTypeConverter;
+    private final DrawnNumbersConverter drawnNumbersConverter;
 
     LotteryNumberGeneratorClientAdapter(FeignLotteryNumberGeneratorClient feignLotteryNumberGeneratorClient, LotteryTypeConverter lotteryTypeConverter,
-            GeneratorTypeConverter generatorTypeConverter) {
+                                        GeneratorTypeConverter generatorTypeConverter, DrawnNumbersConverter drawnNumbersConverter) {
         this.feignLotteryNumberGeneratorClient = feignLotteryNumberGeneratorClient;
         this.lotteryTypeConverter = lotteryTypeConverter;
         this.generatorTypeConverter = generatorTypeConverter;
+        this.drawnNumbersConverter = drawnNumbersConverter;
     }
 
     @Override
-    public SortedSet<Integer> generate(LotteryType lotteryType, GeneratorType generatorType) {
-        return feignLotteryNumberGeneratorClient.generate(lotteryTypeConverter.convert(lotteryType), generatorTypeConverter.convert(generatorType));
+    public DrawnNumbers generate(LotteryType lotteryType, GeneratorType generatorType) {
+        return drawnNumbersConverter.convert(feignLotteryNumberGeneratorClient.generate(lotteryTypeConverter.convert(lotteryType), generatorTypeConverter.convert(generatorType)));
     }
 
     @Override
-    public SortedSet<Integer> generate(int quantity, int poolSize, GeneratorType generatorType) {
-        return feignLotteryNumberGeneratorClient.generate(quantity, poolSize, generatorTypeConverter.convert(generatorType));
+    public DrawnNumbers generate(int quantity, int poolSize, GeneratorType generatorType) {
+        return drawnNumbersConverter.convert(feignLotteryNumberGeneratorClient.generate(quantity, poolSize, generatorTypeConverter.convert(generatorType)));
     }
 }
