@@ -1,4 +1,5 @@
 {
+  "lotteryType": "FIVE_OUT_OF_NINETY",
   "generatorType": "EXPERIMENTAL",
   "drawnNumbers": [
     1,

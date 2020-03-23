@@ -11,6 +11,10 @@ public class DrawnNumbersConverter implements Converter<DrawnNumbers, org.gaborb
 
     @Override
     public org.gaborbalazs.smartplatform.edgeservice.service.domain.DrawnNumbers convert(@NonNull DrawnNumbers source) {
-        return new org.gaborbalazs.smartplatform.edgeservice.service.domain.DrawnNumbers(GeneratorType.valueOf(source.getGeneratorType().name()), source.getDrawnNumbers());
+        return org.gaborbalazs.smartplatform.edgeservice.service.domain.DrawnNumbers.newDrawnNumbers()
+                .lotteryType(source.getLotteryType())
+                .generatorType(GeneratorType.valueOf(source.getGeneratorType().name()))
+                .drawnNumbers(source.getDrawnNumbers())
+                .build();
     }
 }
