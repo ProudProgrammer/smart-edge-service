@@ -9,9 +9,11 @@ import org.gaborbalazs.smartplatform.edgeservice.web.api.RetrieveLotteryNumberSw
 import org.gaborbalazs.smartplatform.edgeservice.web.editor.GeneratorTypeEditor;
 import org.gaborbalazs.smartplatform.edgeservice.web.editor.LotteryTypeEditor;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin
 @RestController
 class RetrieveLotteryNumberController implements RetrieveLotteryNumberApi, RetrieveLotteryNumberSwaggerApi {
 
