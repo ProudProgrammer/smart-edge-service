@@ -12,8 +12,8 @@ public class DefaultRetrieveLotteryNumberService implements RetrieveLotteryNumbe
 
     private final LotteryNumberGeneratorClient lotteryNumberGeneratorClient;
 
-    DefaultRetrieveLotteryNumberService(LotteryNumberGeneratorClient lotteryNumberGeneratorClientAdapter) {
-        this.lotteryNumberGeneratorClient = lotteryNumberGeneratorClientAdapter;
+    DefaultRetrieveLotteryNumberService(LotteryNumberGeneratorClient lotteryNumberGeneratorClient) {
+        this.lotteryNumberGeneratorClient = lotteryNumberGeneratorClient;
     }
 
     public DrawnNumbers retrieve(LotteryType lotteryType, GeneratorType generatorType) {

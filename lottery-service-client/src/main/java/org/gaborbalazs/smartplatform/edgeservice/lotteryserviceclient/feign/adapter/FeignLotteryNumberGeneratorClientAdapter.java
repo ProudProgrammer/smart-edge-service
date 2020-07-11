@@ -11,15 +11,15 @@ import org.gaborbalazs.smartplatform.edgeservice.service.retrieve.iface.LotteryN
 import org.springframework.stereotype.Component;
 
 @Component
-public class LotteryNumberGeneratorClientAdapter implements LotteryNumberGeneratorClient {
+public class FeignLotteryNumberGeneratorClientAdapter implements LotteryNumberGeneratorClient {
 
     private final FeignLotteryNumberGeneratorClient feignLotteryNumberGeneratorClient;
     private final LotteryTypeConverter lotteryTypeConverter;
     private final GeneratorTypeConverter generatorTypeConverter;
     private final DrawnNumbersConverter drawnNumbersConverter;
 
-    LotteryNumberGeneratorClientAdapter(FeignLotteryNumberGeneratorClient feignLotteryNumberGeneratorClient, LotteryTypeConverter lotteryTypeConverter,
-                                        GeneratorTypeConverter generatorTypeConverter, DrawnNumbersConverter drawnNumbersConverter) {
+    FeignLotteryNumberGeneratorClientAdapter(FeignLotteryNumberGeneratorClient feignLotteryNumberGeneratorClient, LotteryTypeConverter lotteryTypeConverter,
+                                             GeneratorTypeConverter generatorTypeConverter, DrawnNumbersConverter drawnNumbersConverter) {
         this.feignLotteryNumberGeneratorClient = feignLotteryNumberGeneratorClient;
         this.lotteryTypeConverter = lotteryTypeConverter;
         this.generatorTypeConverter = generatorTypeConverter;
