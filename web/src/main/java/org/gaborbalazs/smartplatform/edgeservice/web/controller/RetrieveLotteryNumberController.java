@@ -1,5 +1,6 @@
 package org.gaborbalazs.smartplatform.edgeservice.web.controller;
 
+import org.gaborbalazs.smartplatform.edgeservice.service.domain.Draw;
 import org.gaborbalazs.smartplatform.edgeservice.service.domain.DrawnNumbers;
 import org.gaborbalazs.smartplatform.edgeservice.service.enums.GeneratorType;
 import org.gaborbalazs.smartplatform.edgeservice.service.enums.LotteryType;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -31,6 +34,11 @@ class RetrieveLotteryNumberController implements RetrieveLotteryNumberApi, Retri
     @Override
     public DrawnNumbers retrieve(int quantity, int poolSize, GeneratorType generatorType) {
         return defaultRetrieveLotteryNumberService.retrieve(quantity, poolSize, generatorType);
+    }
+
+    @Override
+    public List<? extends Draw> retrieve(LotteryType lotteryType) {
+        return null;
     }
 
     @InitBinder
