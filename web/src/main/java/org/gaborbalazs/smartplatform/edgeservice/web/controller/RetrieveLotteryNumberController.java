@@ -1,7 +1,7 @@
 package org.gaborbalazs.smartplatform.edgeservice.web.controller;
 
 import org.gaborbalazs.smartplatform.edgeservice.service.domain.Draw;
-import org.gaborbalazs.smartplatform.edgeservice.service.domain.DrawnNumbers;
+import org.gaborbalazs.smartplatform.edgeservice.service.domain.GeneratedNumbers;
 import org.gaborbalazs.smartplatform.edgeservice.service.enums.GeneratorType;
 import org.gaborbalazs.smartplatform.edgeservice.service.enums.LotteryType;
 import org.gaborbalazs.smartplatform.edgeservice.service.retrieve.iface.RetrieveLotteryNumberService;
@@ -20,25 +20,25 @@ import java.util.List;
 @RestController
 class RetrieveLotteryNumberController implements RetrieveLotteryNumberApi, RetrieveLotteryNumberSwaggerApi {
 
-    private final RetrieveLotteryNumberService defaultRetrieveLotteryNumberService;
+    private final RetrieveLotteryNumberService retrieveLotteryNumberService;
 
-    RetrieveLotteryNumberController(RetrieveLotteryNumberService defaultRetrieveLotteryNumberService) {
-        this.defaultRetrieveLotteryNumberService = defaultRetrieveLotteryNumberService;
+    RetrieveLotteryNumberController(RetrieveLotteryNumberService retrieveLotteryNumberService) {
+        this.retrieveLotteryNumberService = retrieveLotteryNumberService;
     }
 
     @Override
-    public DrawnNumbers retrieve(LotteryType lotteryType, GeneratorType generatorType) {
-        return defaultRetrieveLotteryNumberService.retrieve(lotteryType, generatorType);
+    public GeneratedNumbers retrieveGenerated(LotteryType lotteryType, GeneratorType generatorType) {
+        return retrieveLotteryNumberService.retrieveGenerated(lotteryType, generatorType);
     }
 
     @Override
-    public DrawnNumbers retrieve(int quantity, int poolSize, GeneratorType generatorType) {
-        return defaultRetrieveLotteryNumberService.retrieve(quantity, poolSize, generatorType);
+    public GeneratedNumbers retrieveGenerated(int quantity, int poolSize, GeneratorType generatorType) {
+        return retrieveLotteryNumberService.retrieveGenerated(quantity, poolSize, generatorType);
     }
 
     @Override
-    public List<? extends Draw> retrieve(LotteryType lotteryType) {
-        return null;
+    public List<Draw> retrieveDrawn(LotteryType lotteryType) {
+        return retrieveLotteryNumberService.retrieveDrawn(lotteryType);
     }
 
     @InitBinder
