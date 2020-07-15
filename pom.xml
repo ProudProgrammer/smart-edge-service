@@ -29,12 +29,12 @@
 		<mockito-junit-jupiter.version>3.0.0</mockito-junit-jupiter.version>
 		<mockito-core.version>3.0.0</mockito-core.version>
 		<spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
-		<openfeign.version>2.1.0.RELEASE</openfeign.version>
+		<openfeign.version>2.2.3.RELEASE</openfeign.version>
 		<wiremock.version>2.24.1</wiremock.version>
 		<jayway-jsonpath.version>2.4.0</jayway-jsonpath.version>
 		<commons-io.version>2.6</commons-io.version>
 		<apache-commons-lang3.version>3.9</apache-commons-lang3.version>
-		<feign-gson.version>8.18.0</feign-gson.version>
+		<feign-gson.version>9.4.0</feign-gson.version>
 		<spotify-dockerfile-plugin.version>1.4.10</spotify-dockerfile-plugin.version>
 	</properties>
 
@@ -123,7 +123,7 @@
 				<version>${openfeign.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.netflix.feign</groupId>
+				<groupId>io.github.openfeign</groupId>
 				<artifactId>feign-gson</artifactId>
 				<version>${feign-gson.version}</version>
 			</dependency>

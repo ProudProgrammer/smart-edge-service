@@ -8,6 +8,8 @@ feign:
     config:
       lotteryNumberGeneratorClient:
         contract: org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.contract.LotteryServiceContract
+      retrieveDrawnLotteryNumbersClient:
+        contract: org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.contract.LotteryServiceContract
 
 # Lottery Service
 lottery:
