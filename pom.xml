@@ -34,7 +34,7 @@
 		<jayway-jsonpath.version>2.4.0</jayway-jsonpath.version>
 		<commons-io.version>2.6</commons-io.version>
 		<apache-commons-lang3.version>3.9</apache-commons-lang3.version>
-		<feign-gson.version>9.4.0</feign-gson.version>
+		<feign-jackson.version>11.0</feign-jackson.version>
 		<spotify-dockerfile-plugin.version>1.4.10</spotify-dockerfile-plugin.version>
 	</properties>
 
@@ -124,8 +124,8 @@
 			</dependency>
 			<dependency>
 				<groupId>io.github.openfeign</groupId>
-				<artifactId>feign-gson</artifactId>
-				<version>${feign-gson.version}</version>
+				<artifactId>feign-jackson</artifactId>
+				<version>${feign-jackson.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.tomakehurst</groupId>
