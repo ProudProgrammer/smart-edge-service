@@ -36,16 +36,6 @@ public final class Hit {
         return currency;
     }
 
-    @Override
-    public String toString() {
-        return "Hit{" +
-                "hits=" + hits +
-                ", tickets=" + tickets +
-                ", prize=" + prize +
-                ", currency=" + currency +
-                '}';
-    }
-
     public static final class Builder {
         private int hits;
         private int tickets;

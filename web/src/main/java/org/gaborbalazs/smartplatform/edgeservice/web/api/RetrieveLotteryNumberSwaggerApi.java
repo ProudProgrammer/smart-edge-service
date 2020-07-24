@@ -29,7 +29,7 @@ public interface RetrieveLotteryNumberSwaggerApi {
             @ApiResponse(code = 500, message = "Internal Server Error"),
             @ApiResponse(code = 501, message = "Not Implemented")})
     GeneratedNumbers retrieveGenerated(
-            @ApiParam(value = "Lottery type", required = true, allowableValues = "five-out-of-ninety,six-out-of-forty-five,scandinavian") LotteryType lotteryType,
+            @ApiParam(value = "Lottery type", required = true, allowableValues = "five-out-of-ninety,six-out-of-forty-five,scandinavian,joker") LotteryType lotteryType,
             @ApiParam(value = "Generator type", allowableValues = "default,experimental") GeneratorType generatorType);
 
     @ApiOperation("Retrieve a set of randomly generated lottery numbers based on quantity and pool size")
