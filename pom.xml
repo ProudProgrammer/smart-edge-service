@@ -32,7 +32,7 @@
 		<openfeign.version>2.2.3.RELEASE</openfeign.version>
 		<wiremock.version>2.24.1</wiremock.version>
 		<jayway-jsonpath.version>2.4.0</jayway-jsonpath.version>
-		<commons-io.version>2.6</commons-io.version>
+		<commons-io.version>2.7</commons-io.version>
 		<apache-commons-lang3.version>3.9</apache-commons-lang3.version>
 		<feign-jackson.version>11.0</feign-jackson.version>
 		<spotify-dockerfile-plugin.version>1.4.10</spotify-dockerfile-plugin.version>
