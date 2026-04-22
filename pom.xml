@@ -31,7 +31,7 @@
 		<spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
 		<openfeign.version>2.2.3.RELEASE</openfeign.version>
 		<wiremock.version>2.24.1</wiremock.version>
-		<jayway-jsonpath.version>2.4.0</jayway-jsonpath.version>
+		<jayway-jsonpath.version>2.9.0</jayway-jsonpath.version>
 		<commons-io.version>2.14.0</commons-io.version>
 		<apache-commons-lang3.version>3.18.0</apache-commons-lang3.version>
 		<feign-jackson.version>11.0</feign-jackson.version>
