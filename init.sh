@@ -1,3 +1,4 @@
 #!/bin/sh
+set -e
 
-java -jar $JAVA_ARGS edge-service.jar
+exec java $JAVA_ARGS -jar app.jar

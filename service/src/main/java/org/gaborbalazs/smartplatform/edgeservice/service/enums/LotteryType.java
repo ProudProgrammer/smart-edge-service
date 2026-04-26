@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 public enum LotteryType {
+
     FIVE_OUT_OF_NINETY("five-out-of-ninety"),
     SIX_OUT_OF_FORTY_FIVE("six-out-of-forty-five"),
     SCANDINAVIAN("scandinavian"),

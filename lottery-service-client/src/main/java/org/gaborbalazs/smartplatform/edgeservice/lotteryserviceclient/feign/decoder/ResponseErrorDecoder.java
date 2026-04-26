@@ -12,20 +12,18 @@ import org.gaborbalazs.smartplatform.edgeservice.lotteryserviceclient.feign.comp
 import org.gaborbalazs.smartplatform.edgeservice.service.retrieve.exception.LotteryNumberGeneratorClientException;
 import org.slf4j.Logger;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.charset.Charset;
 
-@Component
-class ResponseErrorDecoder implements ErrorDecoder {
+public class ResponseErrorDecoder implements ErrorDecoder {
 
-    private ResponseHeaderSetter responseHeaderSetter;
-    private Logger logger;
+    private final ResponseHeaderSetter responseHeaderSetter;
+    private final Logger logger;
 
-    ResponseErrorDecoder(ResponseHeaderSetter responseHeaderSetter, Logger logger) {
+    public ResponseErrorDecoder(ResponseHeaderSetter responseHeaderSetter, Logger logger) {
         this.responseHeaderSetter = responseHeaderSetter;
         this.logger = logger;
     }
@@ -67,7 +65,7 @@ class ResponseErrorDecoder implements ErrorDecoder {
                         .addOptions(Option.DEFAULT_PATH_LEAF_TO_NULL))
                 .parse(responseBodyAsString);
         String responseMessage = documentContext.read("$.message", String.class);
-        logger.debug("Extract message from Lottery Service response body. Response body: {}. Response message: {}" + responseBodyAsString, responseMessage);
+        logger.debug("Extract message from Lottery Service response body. Response body: {}. Response message: {}" , responseBodyAsString, responseMessage);
         return responseMessage;
     }
 

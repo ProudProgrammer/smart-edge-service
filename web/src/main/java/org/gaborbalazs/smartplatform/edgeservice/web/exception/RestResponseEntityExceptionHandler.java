@@ -7,9 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
-import springfox.documentation.swagger.readers.parameter.SwaggerExpandedParameterBuilder;
 
-import javax.servlet.http.HttpServletRequest;
 import java.time.ZonedDateTime;
 
 @RestControllerAdvice(basePackages = {"org.gaborbalazs.smartplatform.edgeservice"})

@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.7.RELEASE</version>
+		<version>4.0.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.gaborbalazs.smartplatform</groupId>
@@ -17,24 +17,20 @@
 
 	<properties>
 		<project.version>1.0-SNAPSHOT</project.version>
-		<java.version>11</java.version>
+		<java.version>25</java.version>
 
 		<!-- Project versions -->
 		<lottery-service-client-api.version>1.0-SNAPSHOT</lottery-service-client-api.version>
 		<logging-filter.version>1.0-SNAPSHOT</logging-filter.version>
 
 		<!-- 3rd party versions -->
-		<swagger.version>2.10.0</swagger.version>
-		<junit-jupiter.version>5.5.1</junit-jupiter.version>
-		<mockito-junit-jupiter.version>3.0.0</mockito-junit-jupiter.version>
-		<mockito-core.version>3.0.0</mockito-core.version>
-		<spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
-		<openfeign.version>2.2.3.RELEASE</openfeign.version>
-		<wiremock.version>2.24.1</wiremock.version>
-		<jayway-jsonpath.version>2.9.0</jayway-jsonpath.version>
-		<commons-io.version>2.14.0</commons-io.version>
-		<apache-commons-lang3.version>3.18.0</apache-commons-lang3.version>
-		<feign-jackson.version>11.0</feign-jackson.version>
+        <springdoc-openapi-starter-webmvc-ui.version>3.0.1</springdoc-openapi-starter-webmvc-ui.version>
+		<spring-cloud-starter-openfeign.version>5.0.1</spring-cloud-starter-openfeign.version>
+        <feign-core.version>13.12</feign-core.version>
+		<wiremock.version>4.0.0-beta.32</wiremock.version>
+		<jayway-jsonpath.version>3.0.0</jayway-jsonpath.version>
+		<commons-io.version>2.22.0</commons-io.version>
+		<apache-commons-lang3.version>3.20.0</apache-commons-lang3.version>
 		<spotify-dockerfile-plugin.version>1.4.10</spotify-dockerfile-plugin.version>
 	</properties>
 
@@ -100,39 +96,32 @@
 			</dependency>
 
 			<!-- 3rd party dependencies -->
-			<dependency>
-				<groupId>io.springfox</groupId>
-				<artifactId>springfox-swagger2</artifactId>
-				<version>${swagger.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.springfox</groupId>
-				<artifactId>springfox-swagger-ui</artifactId>
-				<version>${swagger.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${springdoc-openapi-starter-webmvc-ui.version}</version>
+            </dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-starter-openfeign</artifactId>
-				<version>${openfeign.version}</version>
+                <version>${spring-cloud-starter-openfeign.version}</version>
 			</dependency>
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-core</artifactId>
+                <version>${feign-core.version}</version>
+            </dependency>
 			<dependency>
 				<groupId>io.github.openfeign</groupId>
 				<artifactId>feign-jackson</artifactId>
-				<version>${feign-jackson.version}</version>
+                <version>${feign-core.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>com.github.tomakehurst</groupId>
-				<artifactId>wiremock</artifactId>
-				<version>${wiremock.version}</version>
-				<scope>test</scope>
-			</dependency>
+            <dependency>
+                <groupId>org.wiremock</groupId>
+                <artifactId>wiremock</artifactId>
+                <version>${wiremock.version}</version>
+                <scope>test</scope>
+            </dependency>
 			<dependency>
 				<groupId>com.jayway.jsonpath</groupId>
 				<artifactId>json-path</artifactId>
@@ -150,13 +139,17 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter-webmvc</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
+			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aspectj</artifactId>
+        </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -165,24 +158,6 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>${apache-commons-lang3.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter</artifactId>
-			<version>${junit-jupiter.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-junit-jupiter</artifactId>
-			<version>${mockito-junit-jupiter.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-core</artifactId>
-			<version>${mockito-core.version}</version>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
