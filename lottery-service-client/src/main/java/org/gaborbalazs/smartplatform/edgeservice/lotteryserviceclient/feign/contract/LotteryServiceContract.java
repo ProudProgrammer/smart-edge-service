@@ -9,22 +9,21 @@ import org.springframework.cloud.openfeign.support.SpringMvcContract;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.support.DefaultConversionService;
-import org.springframework.lang.NonNull;
 
 import feign.Contract;
 import feign.MethodMetadata;
 
-class LotteryServiceContract implements Contract {
+public class LotteryServiceContract implements Contract {
 
     private final Contract contract;
 
-    LotteryServiceContract() {
+    public LotteryServiceContract() {
         contract = new SpringMvcContract(Collections.emptyList(), createConversionService());
     }
 
     @Override
-    public List<MethodMetadata> parseAndValidatateMetadata(Class<?> targetType) {
-        return contract.parseAndValidatateMetadata(targetType);
+    public List<MethodMetadata> parseAndValidateMetadata(Class<?> targetType) {
+        return contract.parseAndValidateMetadata(targetType);
     }
 
     private ConversionService createConversionService() {
@@ -37,7 +36,7 @@ class LotteryServiceContract implements Contract {
     private Converter<LotteryType, String> createLotteryTypeToStringConverter() {
         return new Converter<>() {
             @Override
-            public String convert(@NonNull LotteryType lotteryType) {
+            public String convert(LotteryType lotteryType) {
                 return lotteryType.getValue();
             }
         };
@@ -46,7 +45,7 @@ class LotteryServiceContract implements Contract {
     private Converter<GeneratorType, String> createGeneratorTypeToStringConverter() {
         return new Converter<>() {
             @Override
-            public String convert(@NonNull GeneratorType generatorType) {
+            public String convert(GeneratorType generatorType) {
                 return generatorType.getValue();
             }
         };

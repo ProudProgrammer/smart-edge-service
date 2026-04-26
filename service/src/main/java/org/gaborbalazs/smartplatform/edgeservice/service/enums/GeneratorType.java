@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 public enum GeneratorType {
+
     DEFAULT("default"),
     EXPERIMENTAL("experimental");
 
