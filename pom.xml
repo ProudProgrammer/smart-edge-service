@@ -31,7 +31,7 @@
 		<jayway-jsonpath.version>3.0.0</jayway-jsonpath.version>
 		<commons-io.version>2.22.0</commons-io.version>
 		<apache-commons-lang3.version>3.20.0</apache-commons-lang3.version>
-		<spotify-dockerfile-plugin.version>1.4.10</spotify-dockerfile-plugin.version>
+        <fabric8-docker-plugin.version>0.48.1</fabric8-docker-plugin.version>
 	</properties>
 
 	<modules>
@@ -164,13 +164,13 @@
 	<!-- Available plugins -->
 	<build>
 		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>com.spotify</groupId>
-					<artifactId>dockerfile-maven-plugin</artifactId>
-					<version>${spotify-dockerfile-plugin.version}</version>
-				</plugin>
-			</plugins>
+            <plugins>
+                <plugin>
+                    <groupId>io.fabric8</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>${fabric8-docker-plugin.version}</version>
+                </plugin>
+            </plugins>
 		</pluginManagement>
 	</build>
 </project>
